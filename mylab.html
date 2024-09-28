@@ -38,60 +38,28 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
     <style>
-      /* Nút Lab */
+      /* Nút Lab - Sử dụng chung cho tất cả */
       .lab-button {
-        display: inline-flex; /* Để bao gồm biểu tượng và văn bản */
+        display: inline-flex;
         align-items: center;
         gap: 8px;
         padding: 15px 30px;
         margin: 10px;
         border: none;
-        border-radius: 50px; /* Tương tự như trong lab1.html */
-        color: white;
+        border-radius: 50px;
+        color: white; /* Màu chữ mặc định */
         font-size: 16px;
         font-weight: 500;
         cursor: pointer;
-        transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
-        text-decoration: none; /* Đảm bảo các liên kết không bị gạch chân */
+        transition: transform 0.2s, background-color 0.3s, color 0.3s,
+          box-shadow 0.3s;
+        text-decoration: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         background: linear-gradient(
           45deg,
-          #1e88e5,
-          #1976d2
-        ); /* Gradient mặc định */
-      }
-
-      /* Gradient backgrounds cho các nút Lab */
-      .lab1 {
-        background: linear-gradient(45deg, #ff5733, #c70039);
-      }
-
-      .lab2 {
-        background: linear-gradient(45deg, #33c1ff, #1a8cff);
-      }
-
-      .lab3 {
-        background: linear-gradient(45deg, #75ff33, #4dbd33);
-      }
-
-      .lab4 {
-        background: linear-gradient(45deg, #ff33a6, #c8007a);
-      }
-
-      .lab5 {
-        background: linear-gradient(45deg, #ffbd33, #cc9900);
-      }
-
-      .lab6 {
-        background: linear-gradient(45deg, #9b33ff, #7a1aff);
-      }
-
-      .lab7 {
-        background: linear-gradient(45deg, #33ff57, #1aff3c);
-      }
-
-      .lab8 {
-        background: linear-gradient(45deg, #ff3333, #cc0000);
+          #33c1ff,
+          #1a8cff
+        ); /* Màu xanh giống Lab 2 */
       }
 
       /* Hiệu ứng hover cho các nút Lab */
@@ -99,6 +67,12 @@
         transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(
+          45deg,
+          #66b2ff,
+          #4da6ff
+        ); /* Hiệu ứng hover: nền xanh nhạt */
+        color: #ff8c00; /* Màu chữ khi hover: cam nhạt */
       }
 
       /* Hiệu ứng active cho các nút Lab */
@@ -115,32 +89,6 @@
       /* Icon trên các nút Lab */
       .lab-button i {
         font-size: 18px;
-      }
-
-      /* Spacing Footer */
-      .footer-spacing {
-        margin-top: 50px;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .tab-list {
-          flex-direction: column;
-        }
-        .tab {
-          width: 100%;
-        }
-        .design-section {
-          flex-direction: column;
-          align-items: center;
-        }
-        .design-area {
-          width: 100%;
-          min-width: unset; /* Loại bỏ min-width để khu vực chiếm toàn bộ chiều rộng */
-        }
-        .iframe-container {
-          padding-bottom: 75%; /* Tỷ lệ 4:3 trên thiết bị nhỏ */
-        }
       }
     </style>
   </head>
@@ -469,8 +417,6 @@
         labContents.forEach((content) => {
           content.style.display = "none";
         });
-        // Nếu muốn hiển thị Lab1 khi tải trang, hãy thêm dòng sau:
-        // document.querySelector('.lab1').classList.add('active');
       });
 
       // Hiển thị nút Scroll Top khi cuộn xuống
@@ -482,26 +428,6 @@
           scrollTop.classList.remove("show");
         }
       });
-
-      // Hàm hiển thị thông báo (nếu cần)
-      function showAlert(message, type) {
-        const alertPlaceholder = document.createElement("div");
-        alertPlaceholder.innerHTML = `
-          <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        `;
-        document.body.appendChild(alertPlaceholder);
-
-        // Tự động xóa thông báo sau 3 giây
-        setTimeout(() => {
-          const alert = bootstrap.Alert.getOrCreateInstance(
-            alertPlaceholder.firstChild
-          );
-          alert.close();
-        }, 3000);
-      }
     </script>
   </body>
 </html>
