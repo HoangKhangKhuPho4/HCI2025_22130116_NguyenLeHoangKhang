@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f8fafc;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .sidebar {
+        background-color: #f1f5f9;
+        padding: 25px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .sidebar h4 {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #334155;
+      }
+      .sidebar .nav-link {
+        color: #334155;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      .sidebar .nav-link.active,
+      .sidebar .nav-link:hover {
+        background-color: #e2e8f0;
+      }
+      .sidebar .nav-link .icon {
+        font-size: 18px;
+        margin-right: 10px;
+      }
+      .content {
+        padding: 40px 20px;
+      }
+      h2 {
+        color: #1e293b;
+        font-size: 24px;
+        margin-bottom: 25px;
+        font-weight: 500;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #475569;
+      }
+      input.form-control {
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        padding: 10px;
+        font-size: 14px;
+      }
+      .btn {
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+      }
+      .btn-primary {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary:hover {
+        background-color: #2563eb;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+      .btn-outline-primary {
+        border-color: #3b82f6;
+        color: #3b82f6;
+        background-color: transparent;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .btn-outline-primary:hover {
+        background-color: #3b82f6;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .btn-danger {
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .btn-secondary {
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .profile-picture img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .upload-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .upload-buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .upload-buttons .btn {
+        flex: none;
+      }
+      .upload-section input[type="file"],
+      .upload-section input[type="url"] {
+        width: auto;
+      }
+      .card {
+        background-color: #f1f5f9;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+      .card .badge {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .input-group-text {
+        background-color: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      small {
+        color: #94a3b8;
+        font-size: 12px;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Shadow for better visibility */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Transition for smooth hover effect */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .back-to-top:hover {
+        background-color: #2563eb; /* Darker blue on hover */
+        transform: translateY(-5px);
+      }
+      .back-to-top i {
+        font-size: 1.5rem;
+      }
+      /* Custom styles for toggle buttons */
+      .input-group .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-lg-3 col-md-4 sidebar">
+          <h4>Settings</h4>
+
+          <!-- Search Bar -->
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search settings..."
+              aria-label="Search settings"
+            />
+          </div>
+
+          <ul class="nav flex-column" id="menuItems">
+            <!-- General Section -->
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span class="icon">🔑</span> Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">💵</span> Financial & payments
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">📑</span> Tenant Management
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">🏠</span> Property Management
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">📜</span> Lease Management
+              </a>
+            </li>
+
+            <!-- System Section -->
+            <li class="nav-item mt-4">
+              <h4>System</h4>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">🔔</span> Notifications
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">⚙️</span> Preferences
+              </a>
+            </li>
+            <!-- Nút Đăng Nhập/Đăng Xuất -->
+            <li class="nav-item mt-4">
+              <button
+                class="btn btn-outline-primary w-100"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                id="loginButton"
+              >
+                Đăng Nhập
+              </button>
+            </li>
+            <li class="nav-item mt-2">
+              <button
+                class="btn btn-outline-danger w-100"
+                id="logoutButton"
+                style="display: none"
+              >
+                Đăng Xuất
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-lg-9 col-md-8 content">
+          <h2>Account Settings</h2>
+          <div class="row">
+            <!-- Profile Picture Section -->
+            <div class="col-md-4 text-center">
+              <div class="profile-picture">
+                <img
+                  id="profileImage"
+                  src="https://via.placeholder.com/120"
+                  alt="Profile"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="upload-section">
+                <input
+                  type="file"
+                  id="uploadPicture"
+                  accept="image/*"
+                  style="display: none"
+                />
+                <input
+                  type="url"
+                  id="pictureUrl"
+                  placeholder="Enter image URL"
+                  class="form-control"
+                  aria-label="Profile picture URL"
+                />
+                <div class="upload-buttons">
+                  <button class="btn btn-outline-primary" id="uploadButton">
+                    Upload new picture
+                  </button>
+                  <button class="btn btn-danger" id="deleteButton">
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <small>PNG, JPEG under 15MB</small>
+              <div id="uploadFeedback" class="mt-2"></div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="col-md-8">
+              <form id="accountForm" novalidate>
+                <!-- Username -->
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter your username"
+                    maxlength="255"
+                    required
+                    aria-describedby="usernameHelp"
+                  />
+                  <div class="invalid-feedback">
+                    Username is required and must be unique.
+                  </div>
+                </div>
+
+                <!-- Current Password -->
+                <div class="mb-3">
+                  <label for="currentPassword" class="form-label"
+                    >Current Password</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="currentPassword"
+                      placeholder="Enter your current password"
+                      maxlength="255"
+                      required
+                      aria-describedby="currentPasswordHelp"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="toggleCurrentPassword"
+                      aria-label="Toggle current password visibility"
+                    >
+                      Show
+                    </button>
+                  </div>
+                  <div class="invalid-feedback">
+                    Current password is required.
+                  </div>
+                </div>
+
+                <!-- New Password -->
+                <div class="mb-3">
+                  <label for="newPassword" class="form-label"
+                    >New Password</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="newPassword"
+                      placeholder="Enter your new password"
+                      maxlength="255"
+                      required
+                      aria-describedby="newPasswordHelp"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="toggleNewPassword"
+                      aria-label="Toggle new password visibility"
+                    >
+                      Show
+                    </button>
+                  </div>
+                  <progress
+                    max="100"
+                    value="0"
+                    id="newStrengthMeter"
+                    class="w-100 mt-2"
+                    aria-label="Password strength meter"
+                  ></progress>
+                  <small id="newStrengthText"></small>
+                  <div class="invalid-feedback">New password is required.</div>
+                </div>
+
+                <!-- Confirm New Password -->
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label"
+                    >Confirm New Password</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="confirmPassword"
+                      placeholder="Confirm your new password"
+                      maxlength="255"
+                      required
+                      aria-describedby="confirmPasswordHelp"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="toggleConfirmPassword"
+                      aria-label="Toggle confirm password visibility"
+                    >
+                      Show
+                    </button>
+                  </div>
+                  <div class="invalid-feedback">
+                    Please confirm your new password.
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                    maxlength="255"
+                    required
+                    aria-describedby="emailHelp"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+
+                <!-- Full Name (Optional) -->
+                <div class="mb-3">
+                  <label for="fullName" class="form-label"
+                    >Full Name (optional)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    maxlength="255"
+                    aria-describedby="fullNameHelp"
+                  />
+                </div>
+
+                <!-- Role Dropdown -->
+                <div class="mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <select
+                    class="form-select"
+                    id="role"
+                    required
+                    aria-label="Role selection"
+                  >
+                    <option selected disabled value="">Select a role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a role.</div>
+                </div>
+
+                <!-- Integrated Account Section -->
+                <h5>Integrated Accounts</h5>
+                <div class="card">
+                  <div
+                    class="card-body d-flex justify-content-between align-items-center"
+                  >
+                    <div class="d-flex align-items-center">
+                      <img
+                        src="https://via.placeholder.com/30"
+                        alt="Google Analytics"
+                        class="me-2"
+                      />
+                      Google Analytics
+                    </div>
+                    <button class="btn btn-outline-primary">Connected</button>
+                  </div>
+                </div>
+                <div class="card">
+                  <div
+                    class="card-body d-flex justify-content-between align-items-center"
+                  >
+                    <div class="d-flex align-items-center">
+                      <img
+                        src="https://via.placeholder.com/30"
+                        alt="Google Ads"
+                        class="me-2"
+                      />
+                      Google Ads
+                    </div>
+                    <button class="btn btn-outline-primary">Connected</button>
+                  </div>
+                </div>
+
+                <!-- Read-only Fields -->
+                <div class="mb-3">
+                  <label class="form-label">Account Created At</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="accountCreatedAt"
+                    readonly
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Last Updated At</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastUpdatedAt"
+                    readonly
+                  />
+                </div>
+
+                <!-- Save and Cancel Buttons -->
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="saveButton"
+                  disabled
+                >
+                  Save Changes
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="cancelButton"
+                >
+                  Cancel
+                </button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="loginForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Đăng Nhập</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- Username -->
+              <div class="mb-3">
+                <label for="loginUsername" class="form-label"
+                  >Tên đăng nhập</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="loginUsername"
+                  required
+                />
+              </div>
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Mật khẩu</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button
+      class="btn btn-primary back-to-top"
+      id="backToTopButton"
+      aria-label="Back to Top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+      // ===========================
+      // Tính năng đăng nhập, đăng ký, và quản lý thông tin người dùng
+      // ===========================
+
+      // ---------------------------
+      // Các Tham Chiếu đến Các Phần tử
+      // ---------------------------
+      const loginForm = document.getElementById("loginForm");
+      const loginUsernameInput = document.getElementById("loginUsername");
+      const loginPasswordInput = document.getElementById("loginPassword");
+      const loginButton = document.getElementById("loginButton");
+      const logoutButton = document.getElementById("logoutButton");
+
+      const accountForm = document.getElementById("accountForm");
+      const saveButton = document.getElementById("saveButton");
+      const cancelButton = document.getElementById("cancelButton");
+
+      const uploadButton = document.getElementById("uploadButton");
+      const uploadInput = document.getElementById("uploadPicture");
+      const pictureUrlInput = document.getElementById("pictureUrl");
+      const profileImage = document.getElementById("profileImage");
+      const deleteButton = document.getElementById("deleteButton");
+      const uploadFeedback = document.getElementById("uploadFeedback");
+
+      const toggleCurrentPassword = document.getElementById(
+        "toggleCurrentPassword"
+      );
+      const currentPasswordInput = document.getElementById("currentPassword");
+      const toggleNewPassword = document.getElementById("toggleNewPassword");
+      const newPasswordInput = document.getElementById("newPassword");
+      const toggleConfirmPassword = document.getElementById(
+        "toggleConfirmPassword"
+      );
+      const confirmPasswordInput = document.getElementById("confirmPassword");
+
+      const strengthMeter = document.getElementById("newStrengthMeter");
+      const strengthText = document.getElementById("newStrengthText");
+
+      const searchInput = document.getElementById("searchInput");
+      const menuItems = document
+        .getElementById("menuItems")
+        .getElementsByTagName("li");
+
+      const backToTopButton = document.getElementById("backToTopButton");
+
+      const accountCreatedAtField = document.getElementById("accountCreatedAt");
+      const lastUpdatedAtField = document.getElementById("lastUpdatedAt");
+
+      // Thêm biến lưu trữ dữ liệu người dùng ban đầu
+      let originalUserData;
+
+      // ---------------------------
+      // Các Hàm Hỗ Trợ
+      // ---------------------------
+
+      // Hàm định dạng ngày tháng
+      function formatDateTime(timestamp) {
+        const options = {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        };
+        return new Date(timestamp).toLocaleDateString(undefined, options);
+      }
+
+      // Hàm kiểm tra độ mạnh của mật khẩu
+      function calculatePasswordStrength(password) {
+        let strength = 0;
+        if (password.length > 5) strength += 20;
+        if (password.length > 10) strength += 20;
+        if (/[A-Z]/.test(password)) strength += 20;
+        if (/[0-9]/.test(password)) strength += 20;
+        if (/[\W]/.test(password)) strength += 20;
+        return strength;
+      }
+
+      // Hàm kiểm tra tính hợp lệ của biểu mẫu
+      function checkFormValidity() {
+        let isValid = accountForm.checkValidity();
+
+        // Kiểm tra tính duy nhất của username (giả lập)
+        const usernameInput = document.getElementById("username");
+        if (usernameInput.value.trim().toLowerCase() === "existinguser") {
+          usernameInput.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          usernameInput.classList.remove("is-invalid");
+        }
+
+        // Kiểm tra định dạng email
+        const emailInput = document.getElementById("email");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailInput.value)) {
+          emailInput.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          emailInput.classList.remove("is-invalid");
+        }
+
+        // Kiểm tra xác nhận mật khẩu
+        if (
+          confirmPasswordInput.value &&
+          newPasswordInput.value !== confirmPasswordInput.value
+        ) {
+          confirmPasswordInput.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          confirmPasswordInput.classList.remove("is-invalid");
+        }
+
+        // Kiểm tra độ mạnh của mật khẩu
+        const strengthValue = strengthMeter.value;
+        if (strengthValue < 40 && newPasswordInput.value.length > 0) {
+          isValid = false;
+        }
+
+        // Kiểm tra xem có thay đổi nào trong biểu mẫu hay không
+        const isFormChanged =
+          (originalUserData &&
+            (document.getElementById("username").value !==
+              originalUserData.username ||
+              document.getElementById("email").value !==
+                originalUserData.email ||
+              document.getElementById("fullName").value !==
+                originalUserData.fullName ||
+              document.getElementById("role").value !== originalUserData.role ||
+              profileImage.src !== originalUserData.profileImage)) ||
+          newPasswordInput.value.length > 0 ||
+          confirmPasswordInput.value.length > 0;
+
+        // Cập nhật trạng thái của nút "Save Changes"
+        saveButton.disabled = !isValid || !isFormChanged;
+      }
+
+      // Hàm cập nhật "Last Updated At"
+      function updateLastUpdatedAt() {
+        const now = new Date().toISOString();
+        localStorage.setItem("lastUpdatedAt", now);
+        lastUpdatedAtField.value = formatDateTime(now);
+      }
+
+      // Hàm khởi tạo "Account Created At"
+      function initializeAccountCreatedAt() {
+        if (!localStorage.getItem("accountCreatedAt")) {
+          const now = new Date().toISOString();
+          localStorage.setItem("accountCreatedAt", now);
+        }
+        accountCreatedAtField.value = formatDateTime(
+          localStorage.getItem("accountCreatedAt")
+        );
+      }
+
+      // Hàm khởi tạo "Last Updated At"
+      function initializeLastUpdatedAt() {
+        if (!localStorage.getItem("lastUpdatedAt")) {
+          localStorage.setItem(
+            "lastUpdatedAt",
+            localStorage.getItem("accountCreatedAt")
+          );
+        }
+        lastUpdatedAtField.value = formatDateTime(
+          localStorage.getItem("lastUpdatedAt")
+        );
+      }
+
+      // Hàm hiển thị/ẩn các nút đăng nhập và đăng xuất
+      function toggleLoginLogoutButtons() {
+        const currentUserId = localStorage.getItem("currentUserId");
+        if (currentUserId) {
+          logoutButton.style.display = "block";
+          loginButton.style.display = "none";
+        } else {
+          logoutButton.style.display = "none";
+          loginButton.style.display = "block";
+        }
+      }
+
+      // ---------------------------
+      // Xử Lý Đăng Nhập
+      // ---------------------------
+      loginForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const credentials = {
+          username: loginUsernameInput.value.trim(),
+          password: loginPasswordInput.value.trim(),
+        };
+
+        try {
+          const response = await fetch(
+            "http://localhost:5000/api/users/login",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(credentials),
+            }
+          );
+
+          const data = await response.json();
+          if (response.ok) {
+            alert(data.message);
+            // Lưu ID người dùng và token vào localStorage
+            localStorage.setItem("currentUserId", data.user._id);
+            localStorage.setItem("authToken", data.token);
+            // Đóng modal đăng nhập
+            const loginModal = bootstrap.Modal.getInstance(
+              document.getElementById("loginModal")
+            );
+            loginModal.hide();
+            // Tải lại thông tin người dùng
+            fetchUserData(data.user._id);
+            toggleLoginLogoutButtons();
+          } else {
+            alert(data.message);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Đã xảy ra lỗi khi đăng nhập.");
+        }
+      });
+
+      // ---------------------------
+      // Xử Lý Đăng Xuất
+      // ---------------------------
+      logoutButton.addEventListener("click", function () {
+        localStorage.removeItem("currentUserId");
+        localStorage.removeItem("authToken");
+        alert("Đã đăng xuất.");
+        toggleLoginLogoutButtons();
+        // Làm trống các trường trong biểu mẫu
+        accountForm.reset();
+        profileImage.src = "https://via.placeholder.com/120";
+        accountCreatedAtField.value = "";
+        lastUpdatedAtField.value = "";
+        uploadFeedback.innerHTML = "";
+        // Xóa dữ liệu người dùng gốc
+        originalUserData = null;
+        // Vô hiệu hóa nút "Save Changes"
+        saveButton.disabled = true;
+      });
+
+      // ---------------------------
+      // Xử Lý Đăng Ký Người Dùng (Giả Lập)
+      // ---------------------------
+      // Bạn có thể thêm một modal đăng ký tương tự như modal đăng nhập nếu cần
+
+      // ---------------------------
+      // Xử Lý Tải và Cập Nhật Thông Tin Người Dùng
+      // ---------------------------
+      async function fetchUserData(userId) {
+        const token = localStorage.getItem("authToken");
+        try {
+          const response = await fetch(
+            `http://localhost:5000/api/users/${userId}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (response.ok) {
+            const user = await response.json();
+            populateForm(user);
+          } else {
+            alert("Không thể lấy thông tin người dùng.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Đã xảy ra lỗi khi lấy thông tin người dùng.");
+        }
+      }
+
+      function populateForm(user) {
+        document.getElementById("username").value = user.username;
+        document.getElementById("email").value = user.email;
+        // Không điền mật khẩu
+        document.getElementById("fullName").value = user.fullName || "";
+        document.getElementById("role").value = user.role;
+        profileImage.src =
+          user.profileImage || "https://via.placeholder.com/120";
+        accountCreatedAtField.value = formatDateTime(user.createdAt);
+        lastUpdatedAtField.value = formatDateTime(user.updatedAt);
+
+        // Lưu trữ dữ liệu gốc của người dùng
+        originalUserData = {
+          username: user.username,
+          email: user.email,
+          fullName: user.fullName || "",
+          role: user.role,
+          profileImage: user.profileImage || "https://via.placeholder.com/120",
+        };
+
+        // Đặt lại trạng thái của nút "Save Changes"
+        saveButton.disabled = true;
+      }
+
+      accountForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const currentUserId = localStorage.getItem("currentUserId");
+        const token = localStorage.getItem("authToken");
+
+        if (!currentUserId) {
+          alert("Vui lòng đăng nhập để cập nhật thông tin.");
+          return;
+        }
+
+        // Thu thập dữ liệu từ biểu mẫu
+        const formData = {
+          username: document.getElementById("username").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          // Nếu người dùng muốn cập nhật mật khẩu, hãy thêm vào đây
+          // password: document.getElementById("newPassword").value.trim(),
+          fullName: document.getElementById("fullName").value.trim(),
+          role: document.getElementById("role").value,
+          profileImage: profileImage.src,
+        };
+
+        try {
+          const response = await fetch(
+            `http://localhost:5000/api/users/${currentUserId}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify(formData),
+            }
+          );
+
+          const data = await response.json();
+          if (response.ok) {
+            alert(data.message);
+            populateForm(data.user);
+            updateLastUpdatedAt();
+          } else {
+            alert(data.message);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Đã xảy ra lỗi khi cập nhật thông tin người dùng.");
+        }
+      });
+
+      // ---------------------------
+      // Xử Lý Nút "Cancel"
+      // ---------------------------
+      cancelButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        // Đặt lại biểu mẫu về dữ liệu ban đầu
+        if (originalUserData) {
+          populateForm(originalUserData);
+        } else {
+          accountForm.reset();
+          profileImage.src = "https://via.placeholder.com/120";
+        }
+
+        // Xóa các thông báo lỗi (nếu có)
+        const invalidFields = accountForm.querySelectorAll(".is-invalid");
+        invalidFields.forEach((field) => field.classList.remove("is-invalid"));
+
+        // Đặt lại thanh đo độ mạnh mật khẩu
+        strengthMeter.value = 0;
+        strengthText.textContent = "";
+
+        // Vô hiệu hóa nút "Save Changes" vì không có thay đổi
+        saveButton.disabled = true;
+
+        // Xóa thông báo phản hồi upload ảnh (nếu có)
+        uploadFeedback.innerHTML = "";
+      });
+
+      // ---------------------------
+      // Xử Lý Upload Hình Ảnh Hồ Sơ
+      // ---------------------------
+      // Click event for the upload button
+      uploadButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        uploadInput.click();
+      });
+
+      // Event listener for file input change
+      uploadInput.addEventListener("change", function () {
+        const file = uploadInput.files[0];
+        if (file) {
+          if (file.size > 15 * 1024 * 1024) {
+            uploadFeedback.innerHTML =
+              '<div class="alert alert-danger" role="alert">File size exceeds 15MB.</div>';
+            return;
+          }
+          const reader = new FileReader();
+
+          reader.onloadend = function () {
+            profileImage.src = reader.result;
+            uploadFeedback.innerHTML =
+              '<div class="alert alert-success" role="alert">Profile picture updated successfully.</div>';
+            pictureUrlInput.value = "";
+            updateLastUpdatedAt();
+            checkFormValidity();
+          };
+
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Event listener for URL input change
+      pictureUrlInput.addEventListener("change", function () {
+        const url = pictureUrlInput.value.trim();
+        if (url) {
+          // Simple URL validation
+          const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i;
+          if (urlPattern.test(url)) {
+            profileImage.src = url;
+            uploadFeedback.innerHTML =
+              '<div class="alert alert-success" role="alert">Profile picture updated successfully.</div>';
+            uploadInput.value = "";
+            updateLastUpdatedAt();
+            checkFormValidity();
+          } else {
+            uploadFeedback.innerHTML =
+              '<div class="alert alert-danger" role="alert">Invalid image URL.</div>';
+          }
+        }
+      });
+
+      // Delete Profile Picture
+      deleteButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        profileImage.src = "https://via.placeholder.com/120";
+        uploadInput.value = "";
+        pictureUrlInput.value = "";
+        uploadFeedback.innerHTML =
+          '<div class="alert alert-info" role="alert">Profile picture has been reset.</div>';
+        updateLastUpdatedAt();
+        checkFormValidity();
+      });
+
+      // ---------------------------
+      // Xử Lý Toggle Password Visibility
+      // ---------------------------
+      toggleCurrentPassword.addEventListener("click", function () {
+        const type =
+          currentPasswordInput.getAttribute("type") === "password"
+            ? "text"
+            : "password";
+        currentPasswordInput.setAttribute("type", type);
+        this.textContent = this.textContent === "Show" ? "Hide" : "Show";
+      });
+
+      toggleNewPassword.addEventListener("click", function () {
+        const type =
+          newPasswordInput.getAttribute("type") === "password"
+            ? "text"
+            : "password";
+        newPasswordInput.setAttribute("type", type);
+        this.textContent = this.textContent === "Show" ? "Hide" : "Show";
+      });
+
+      toggleConfirmPassword.addEventListener("click", function () {
+        const type =
+          confirmPasswordInput.getAttribute("type") === "password"
+            ? "text"
+            : "password";
+        confirmPasswordInput.setAttribute("type", type);
+        this.textContent = this.textContent === "Show" ? "Hide" : "Show";
+      });
+
+      // ---------------------------
+      // Xử Lý Password Strength Meter
+      // ---------------------------
+      newPasswordInput.addEventListener("input", function () {
+        const strength = calculatePasswordStrength(this.value);
+        strengthMeter.value = strength;
+
+        if (strength < 40) {
+          strengthText.textContent = "Weak";
+          strengthText.style.color = "red";
+        } else if (strength < 70) {
+          strengthText.textContent = "Medium";
+          strengthText.style.color = "orange";
+        } else {
+          strengthText.textContent = "Strong";
+          strengthText.style.color = "green";
+        }
+        checkFormValidity();
+      });
+
+      // ---------------------------
+      // Xử Lý Form Validation
+      // ---------------------------
+      accountForm.addEventListener("input", checkFormValidity);
+
+      accountForm.addEventListener("input", function () {
+        // Validate password confirmation
+        const newPassword = newPasswordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        if (confirmPassword && newPassword !== confirmPassword) {
+          confirmPasswordInput.classList.add("is-invalid");
+        } else {
+          confirmPasswordInput.classList.remove("is-invalid");
+        }
+      });
+
+      // ---------------------------
+      // Xử Lý Search Sidebar
+      // ---------------------------
+      searchInput.addEventListener("input", function () {
+        const filter = searchInput.value.toLowerCase();
+        for (let i = 0; i < menuItems.length; i++) {
+          const textValue = menuItems[i].textContent || menuItems[i].innerText;
+          if (textValue.toLowerCase().indexOf(filter) > -1) {
+            menuItems[i].style.display = "";
+          } else {
+            menuItems[i].style.display = "none";
+          }
+        }
+      });
+
+      // ---------------------------
+      // Xử Lý Back to Top Button
+      // ---------------------------
+      backToTopButton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // ---------------------------
+      // Xử Lý Khởi Tạo Thời Gian
+      // ---------------------------
+      // Initialize Account Created At and Last Updated At
+      function initializeTimestamps() {
+        initializeAccountCreatedAt();
+        initializeLastUpdatedAt();
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initializeTimestamps();
+        toggleLoginLogoutButtons();
+
+        const currentUserId = localStorage.getItem("currentUserId");
+        if (currentUserId) {
+          fetchUserData(currentUserId);
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

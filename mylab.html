@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Labs</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <style>
+      /* Nút Lab */
+      .lab-button {
+        display: inline-flex; /* Để bao gồm biểu tượng và văn bản */
+        align-items: center;
+        gap: 8px;
+        padding: 15px 30px;
+        margin: 10px;
+        border: none;
+        border-radius: 50px; /* Tương tự như trong lab1.html */
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+        text-decoration: none; /* Đảm bảo các liên kết không bị gạch chân */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(
+          45deg,
+          #1e88e5,
+          #1976d2
+        ); /* Gradient mặc định */
+      }
+
+      /* Gradient backgrounds cho các nút Lab */
+      .lab1 {
+        background: linear-gradient(45deg, #ff5733, #c70039);
+      }
+
+      .lab2 {
+        background: linear-gradient(45deg, #33c1ff, #1a8cff);
+      }
+
+      .lab3 {
+        background: linear-gradient(45deg, #75ff33, #4dbd33);
+      }
+
+      .lab4 {
+        background: linear-gradient(45deg, #ff33a6, #c8007a);
+      }
+
+      .lab5 {
+        background: linear-gradient(45deg, #ffbd33, #cc9900);
+      }
+
+      .lab6 {
+        background: linear-gradient(45deg, #9b33ff, #7a1aff);
+      }
+
+      .lab7 {
+        background: linear-gradient(45deg, #33ff57, #1aff3c);
+      }
+
+      .lab8 {
+        background: linear-gradient(45deg, #ff3333, #cc0000);
+      }
+
+      /* Hiệu ứng hover cho các nút Lab */
+      .lab-button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Hiệu ứng active cho các nút Lab */
+      .lab-button.active {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Hiệu ứng focus cho các nút Lab */
+      .lab-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+      }
+
+      /* Icon trên các nút Lab */
+      .lab-button i {
+        font-size: 18px;
+      }
+
+      /* Spacing Footer */
+      .footer-spacing {
+        margin-top: 50px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .tab-list {
+          flex-direction: column;
+        }
+        .tab {
+          width: 100%;
+        }
+        .design-section {
+          flex-direction: column;
+          align-items: center;
+        }
+        .design-area {
+          width: 100%;
+          min-width: unset; /* Loại bỏ min-width để khu vực chiếm toàn bộ chiều rộng */
+        }
+        .iframe-container {
+          padding-bottom: 75%; /* Tỷ lệ 4:3 trên thiết bị nhỏ */
+        }
+      }
+    </style>
+  </head>
+
+  <body class="index-page">
+    <!-- Header -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img
+            src="assets/img/logoDt.png"
+            alt="Logo"
+            style="height: 50px; width: auto; margin-right: 10px"
+          />
+          <h1 class="sitename">Hoang Khang</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul class="d-flex gap-3">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="result.html">Result</a></li>
+            <li><a href="mylab.html" class="active">My Labs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container text-center" style="margin-top: 100px">
+        <h2 class="mb-4">My Labs</h2>
+        <div class="lab-buttons">
+          <!-- Lab 1 Được Tách Thành Liên Kết với Icon -->
+          <a href="lab1.html" class="lab-button lab1 active">
+            <i class="bi bi-book"></i> Lab 1
+          </a>
+
+          <!-- Các Nút Lab 2 - Lab 8 Sử Dụng Các Nút Button với Icon -->
+          <button class="lab-button lab2" onclick="showLabContent('lab2')">
+            <i class="bi bi-book"></i> Lab 2
+          </button>
+          <button class="lab-button lab3" onclick="showLabContent('lab3')">
+            <i class="bi bi-book"></i> Lab 3
+          </button>
+          <button class="lab-button lab4" onclick="showLabContent('lab4')">
+            <i class="bi bi-book"></i> Lab 4
+          </button>
+          <button class="lab-button lab5" onclick="showLabContent('lab5')">
+            <i class="bi bi-book"></i> Lab 5
+          </button>
+          <button class="lab-button lab6" onclick="showLabContent('lab6')">
+            <i class="bi bi-book"></i> Lab 6
+          </button>
+          <button class="lab-button lab7" onclick="showLabContent('lab7')">
+            <i class="bi bi-book"></i> Lab 7
+          </button>
+          <button class="lab-button lab8" onclick="showLabContent('lab8')">
+            <i class="bi bi-book"></i> Lab 8
+          </button>
+        </div>
+      </div>
+
+      <!-- Nội dung Lab 2 - Lab 8 -->
+      <!-- Ví dụ: Nội dung Lab 2 -->
+      <div class="container lab-content" id="lab2" style="display: none">
+        <h2>Lab 2 - Tiêu đề Lab 2</h2>
+        <!-- Thêm nội dung cho Lab 2 tại đây -->
+        <p>Nội dung Lab 2...</p>
+      </div>
+
+      <!-- Ví dụ: Nội dung Lab 3 -->
+      <div class="container lab-content" id="lab3" style="display: none">
+        <h2>Lab 3 - Tiêu đề Lab 3</h2>
+        <!-- Thêm nội dung cho Lab 3 tại đây -->
+        <p>Nội dung Lab 3...</p>
+      </div>
+
+      <!-- Ví dụ: Nội dung Lab 4 -->
+      <div class="container lab-content" id="lab4" style="display: none">
+        <h2>Lab 4 - Tiêu đề Lab 4</h2>
+        <!-- Thêm nội dung cho Lab 4 tại đây -->
+        <p>Nội dung Lab 4...</p>
+      </div>
+
+      <!-- Nội dung Lab 5 -->
+      <div class="container lab-content" id="lab5" style="display: none">
+        <h2>Lab 5 - Tiêu đề Lab 5</h2>
+        <p>Nội dung Lab 5...</p>
+      </div>
+
+      <!-- Nội dung Lab 6 -->
+      <div class="container lab-content" id="lab6" style="display: none">
+        <h2>Lab 6 - Tiêu đề Lab 6</h2>
+        <p>Nội dung Lab 6...</p>
+      </div>
+
+      <!-- Nội dung Lab 7 -->
+      <div class="container lab-content" id="lab7" style="display: none">
+        <h2>Lab 7 - Tiêu đề Lab 7</h2>
+        <p>Nội dung Lab 7...</p>
+      </div>
+
+      <!-- Nội dung Lab 8 -->
+      <div class="container lab-content" id="lab8" style="display: none">
+        <h2>Lab 8 - Tiêu đề Lab 8</h2>
+        <p>Nội dung Lab 8...</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <!-- Giới Thiệu -->
+            <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up">
+              <h4>Giới Thiệu</h4>
+              <p>
+                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
+                và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="Twitter"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100088292157574"
+                  aria-label="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Liên Kết Nhanh -->
+            <div
+              class="col-lg-2 col-md-6 footer-links"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h4>Liên Kết Nhanh</h4>
+              <ul>
+                <li>
+                  <a href="index.html"
+                    ><i class="bi bi-chevron-right"></i> Trang Chủ</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html"
+                    ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
+                  >
+                </li>
+                <li>
+                  <a href="resume.html"
+                    ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
+                  >
+                </li>
+                <li>
+                  <a href="services.html"
+                    ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
+                  >
+                </li>
+                <li>
+                  <a href="portfolio.html"
+                    ><i class="bi bi-chevron-right"></i> Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="bi bi-chevron-right"></i> Liên Hệ</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Dịch Vụ -->
+            <div
+              class="col-lg-3 col-md-6 footer-services"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h4>Dịch Vụ</h4>
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Thông Tin Liên Hệ -->
+            <div
+              class="col-lg-4 col-md-6 footer-contact"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h4>Liên Hệ</h4>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:22130116@st.hcmuaf.edu.vn"
+                  >22130116@st.hcmuaf.edu.vn</a
+                ><br />
+                <strong>Điện Thoại:</strong>
+                <a href="tel:+1234567890">+1 234 567 890</a><br />
+                <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
+              </p>
+              <!-- Đăng Ký Newsletter -->
+              <form action="#" method="post" class="newsletter-form">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email của bạn"
+                  aria-label="Email của bạn"
+                  required
+                />
+                <button type="submit" aria-label="Đăng Ký">
+                  <i class="bi bi-send"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start">
+              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
+              Mọi Quyền
+            </div>
+            <div class="col-lg-6 footer-credits text-center text-lg-end">
+              Thiết Kế Bởi
+              <a href="https://www.facebook.com/profile.php?id=100088292157574"
+                >Nguyễn Lê Hoàng Khang</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Hàm hiển thị nội dung Lab
+      function showLabContent(labId) {
+        // Ẩn tất cả các nội dung Lab
+        const labContents = document.querySelectorAll(".lab-content");
+        labContents.forEach((content) => {
+          content.style.display = "none";
+        });
+
+        // Hiển thị nội dung Lab được chọn
+        const selectedLab = document.getElementById(labId);
+        if (selectedLab) {
+          selectedLab.style.display = "block";
+        }
+
+        // Xóa class active khỏi tất cả các nút Lab
+        const labButtons = document.querySelectorAll(".lab-button");
+        labButtons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        // Thêm class active cho nút Lab được chọn
+        const activeButton = document.querySelector(`.lab-button.${labId}`);
+        if (activeButton) {
+          activeButton.classList.add("active");
+        }
+      }
+
+      // Khởi tạo mặc định: ẩn tất cả các nội dung Lab
+      document.addEventListener("DOMContentLoaded", () => {
+        const labContents = document.querySelectorAll(".lab-content");
+        labContents.forEach((content) => {
+          content.style.display = "none";
+        });
+        // Nếu muốn hiển thị Lab1 khi tải trang, hãy thêm dòng sau:
+        // document.querySelector('.lab1').classList.add('active');
+      });
+
+      // Hiển thị nút Scroll Top khi cuộn xuống
+      window.addEventListener("scroll", function () {
+        const scrollTop = document.getElementById("scroll-top");
+        if (window.pageYOffset > 300) {
+          scrollTop.classList.add("show");
+        } else {
+          scrollTop.classList.remove("show");
+        }
+      });
+
+      // Hàm hiển thị thông báo (nếu cần)
+      function showAlert(message, type) {
+        const alertPlaceholder = document.createElement("div");
+        alertPlaceholder.innerHTML = `
+          <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        `;
+        document.body.appendChild(alertPlaceholder);
+
+        // Tự động xóa thông báo sau 3 giây
+        setTimeout(() => {
+          const alert = bootstrap.Alert.getOrCreateInstance(
+            alertPlaceholder.firstChild
+          );
+          alert.close();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
