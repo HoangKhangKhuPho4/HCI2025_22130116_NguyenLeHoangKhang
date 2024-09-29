@@ -172,8 +172,6 @@ h6 {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
-/* Global Header on Scroll
-------------------------------*/
 .scrolled .header {
   --background-color: rgba(0, 0, 0, 0.8);
 }
@@ -479,8 +477,9 @@ h6 {
   background-color: hsl(220, 100%, 60%); /* Xanh nước biển nhạt hơn khi hover */
 }
 
-.footer-contact strong {
-  color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho chữ đậm */
+.footer {
+  background-color: hsl(220, 20%, 20%);
+  color: hsl(220, 0%, 95%);
 }
 
 .footer {
@@ -524,6 +523,22 @@ h6 {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+.footer a:hover {
+  color: hsl(220, 100%, 60%);
+}
+
+.footer h4::after {
+  background-color: hsl(220, 100%, 50%);
+}
+
+.footer-bottom .sitename {
+  color: hsl(220, 100%, 50%);
+}
+
+.footer-credits a:hover {
+  color: hsl(220, 100%, 60%);
 }
 
 .footer-about p,
@@ -729,17 +744,13 @@ h6 {
 }
 
 .footer-contact a {
-  color: hsl(
-    220,
-    100%,
-    50%
-  ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
+  color: hsl(220, 100%, 50%); /* Xanh nước biển */
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footer-contact a:hover {
-  color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+  color: hsl(220, 100%, 60%); /* Xanh nước biển nhạt hơn khi hover */
 }
 
 .footer-contact p {
@@ -944,11 +955,19 @@ section,
 
 .section-title h2::after {
   content: "";
-  width: 120px;
-  height: 1px;
-  display: inline-block;
-  background: var(--accent-color);
-  margin: 4px 10px;
+  position: absolute;
+  width: 60px; /* Độ rộng của gạch đỏ */
+  height: 4px; /* Độ dày của gạch đỏ */
+  background-color: #ff5722; /* Màu sắc của gạch đỏ */
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.section-title h2::after {
+  display: none;
 }
 
 .section-title div {
@@ -1938,4 +1957,53 @@ section,
   width: 100%; /* Nút chiếm toàn bộ chiều rộng trên thiết bị nhỏ */
   max-width: 200px;
   margin: 10px auto; /* Căn giữa các nút */
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+.sitename {
+  color: var(--accent-color); /* Màu xanh nước biển */
+}
+.footer-credits a {
+  color: var(--accent-color); /* Màu xanh nước biển */
+  text-decoration: none;
+}
+
+.footer-credits a:hover {
+  color: hsl(220, 100%, 60%); /* Xanh nước biển nhạt hơn khi hover */
+  text-decoration: underline;
+}
+:root {
+  --accent-color: #007bff; /* Màu xanh nước biển */
+}
+
+.footer-bottom .sitename {
+  color: var(--accent-color); /* Thay đổi thành màu xanh nước biển */
+}
+.footer-bottom .sitename {
+  color: var(--accent-color) !important; /* Màu xanh nước biển */
+}
+.footer-bottom .sitename {
+  color: var(
+    --accent-color
+  ) !important; /* Chắc chắn sử dụng màu xanh nước biển */
 }
