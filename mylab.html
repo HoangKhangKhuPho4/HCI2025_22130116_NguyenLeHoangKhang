@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>My Labs</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>Lab 2 - Flexbox and Grid Layouts</title>
+    <meta name="description" content="Lab 2: Flexbox and Grid Layouts" />
+    <meta name="keywords" content="CSS, Flexbox, Grid, Layout Design" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -38,65 +38,81 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!--
-      * Custom My Labs Page for Hoang Khang
-      * Author: Nguyen Le Hoang Khang
-      * Updated: September 2024
-      -->
-
     <!-- Custom CSS -->
     <style>
-      /* Nút Lab - Sử dụng chung cho tất cả */
-      .lab-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 15px 30px;
-        margin: 10px;
-        border: none;
-        border-radius: 50px;
-        color: white; /* Màu chữ mặc định */
-        font-size: 16px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: transform 0.2s, background-color 0.3s, color 0.3s,
-          box-shadow 0.3s;
-        text-decoration: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(
-          45deg,
-          #33c1ff,
-          #1a8cff
-        ); /* Màu xanh giống Lab 2 */
+      /* Cơ bản */
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #121212; /* Nền chính màu đen tối */
+        color: #e0e0e0; /* Màu chữ sáng cho độ tương phản */
       }
 
-      /* Hiệu ứng hover cho các nút Lab */
+      /* Header */
+      .header {
+        background-color: #1f1f1f; /* Màu nền header tối hơn */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .logo .sitename {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff; /* Màu chữ trắng */
+      }
+
+      .navmenu ul li a {
+        color: #e0e0e0; /* Màu chữ sáng cho liên kết */
+        transition: color 0.3s;
+      }
+
+      .navmenu ul li a:hover {
+        color: #1e88e5; /* Màu khi hover */
+      }
+
+      /* Lab Buttons */
+      .lab-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      /* Định nghĩa lớp lab-button cho các nút Lab */
+      .lab-button {
+        padding: 12px 24px;
+        border-radius: 50px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
+          background 0.3s, color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        text-decoration: none; /* Đảm bảo không có gạch chân */
+      }
+
       .lab-button:hover {
         transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(
-          45deg,
-          #66b2ff,
-          #4da6ff
-        ); /* Hiệu ứng hover: nền xanh nhạt */
-        color: #ff8c00; /* Màu chữ khi hover: cam nhạt */
+        background: linear-gradient(45deg, #66b2ff, #4da6ff);
+        color: #ff8c00;
       }
 
-      /* Hiệu ứng active cho các nút Lab */
       .lab-button.active {
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        color: #ffffff;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
       }
 
-      /* Hiệu ứng focus cho các nút Lab */
       .lab-button:focus {
         outline: none;
-        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-      }
-
-      /* Icon trên các nút Lab */
-      .lab-button i {
-        font-size: 18px;
+        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
       }
 
       /* Scroll Top Button */
@@ -157,6 +173,19 @@
       /* Nội dung Lab */
       .lab-content {
         margin-top: 50px;
+        padding: 20px;
+        background-color: #1f1f1f;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .lab-content h2 {
+        color: #1e88e5;
+        margin-bottom: 20px;
+      }
+
+      .lab-content p {
+        color: #e0e0e0;
       }
     </style>
   </head>
@@ -203,74 +232,97 @@
           </a>
 
           <!-- Các Nút Lab 2 - Lab 8 Sử Dụng Các Nút Button với Icon -->
-          <button class="lab-button lab2" onclick="showLabContent('lab2')">
+          <a href="lab2.html" class="lab-button lab2">
             <i class="bi bi-book"></i> Lab 2
-          </button>
-          <button class="lab-button lab3" onclick="showLabContent('lab3')">
+          </a>
+          <a href="lab3.html" class="lab-button lab3">
             <i class="bi bi-book"></i> Lab 3
-          </button>
-          <button class="lab-button lab4" onclick="showLabContent('lab4')">
+          </a>
+          <a href="lab4.html" class="lab-button lab4">
             <i class="bi bi-book"></i> Lab 4
-          </button>
-          <button class="lab-button lab5" onclick="showLabContent('lab5')">
+          </a>
+          <a href="lab5.html" class="lab-button lab5">
             <i class="bi bi-book"></i> Lab 5
-          </button>
-          <button class="lab-button lab6" onclick="showLabContent('lab6')">
+          </a>
+          <a href="lab6.html" class="lab-button lab6">
             <i class="bi bi-book"></i> Lab 6
-          </button>
-          <button class="lab-button lab7" onclick="showLabContent('lab7')">
+          </a>
+          <a href="lab7.html" class="lab-button lab7">
             <i class="bi bi-book"></i> Lab 7
-          </button>
-          <button class="lab-button lab8" onclick="showLabContent('lab8')">
+          </a>
+          <a href="lab8.html" class="lab-button lab8">
             <i class="bi bi-book"></i> Lab 8
-          </button>
+          </a>
         </div>
       </div>
 
-      <!-- Nội dung Lab 2 - Lab 8 -->
-      <!-- Ví dụ: Nội dung Lab 2 -->
+      <!-- phần nội dung phía dưới không quá quan trọng lắm -->
+
+      <!-- Nội dung Lab 2 -->
       <div class="container lab-content" id="lab2" style="display: none">
-        <h2>Lab 2 - Tiêu đề Lab 2</h2>
+        <h2>Lab 2 - Flexbox and Grid Layouts</h2>
         <!-- Thêm nội dung cho Lab 2 tại đây -->
-        <p>Nội dung Lab 2...</p>
+        <p>
+          Nội dung Lab 2: Sử dụng Flexbox và CSS Grid để xây dựng layout linh
+          hoạt và đáp ứng.
+        </p>
       </div>
 
-      <!-- Ví dụ: Nội dung Lab 3 -->
+      <!-- Nội dung Lab 3 -->
       <div class="container lab-content" id="lab3" style="display: none">
-        <h2>Lab 3 - Tiêu đề Lab 3</h2>
+        <h2>Lab 3 - Responsive Typography</h2>
         <!-- Thêm nội dung cho Lab 3 tại đây -->
-        <p>Nội dung Lab 3...</p>
+        <p>Nội dung Lab 3: Tạo kiểu chữ linh hoạt, dễ đọc trên mọi thiết bị.</p>
       </div>
 
-      <!-- Ví dụ: Nội dung Lab 4 -->
+      <!-- Nội dung Lab 4 -->
       <div class="container lab-content" id="lab4" style="display: none">
-        <h2>Lab 4 - Tiêu đề Lab 4</h2>
+        <h2>Lab 4 - CSS Variables and Custom Properties</h2>
         <!-- Thêm nội dung cho Lab 4 tại đây -->
-        <p>Nội dung Lab 4...</p>
+        <p>
+          Nội dung Lab 4: Sử dụng các biến CSS để quản lý màu sắc, kích thước và
+          các thuộc tính khác.
+        </p>
       </div>
 
       <!-- Nội dung Lab 5 -->
       <div class="container lab-content" id="lab5" style="display: none">
-        <h2>Lab 5 - Tiêu đề Lab 5</h2>
-        <p>Nội dung Lab 5...</p>
+        <h2>Lab 5 - Advanced Selectors and Pseudo-classes</h2>
+        <!-- Thêm nội dung cho Lab 5 tại đây -->
+        <p>
+          Nội dung Lab 5: Sử dụng các selectors nâng cao và pseudo-classes để
+          tùy chỉnh các phần tử.
+        </p>
       </div>
 
       <!-- Nội dung Lab 6 -->
       <div class="container lab-content" id="lab6" style="display: none">
-        <h2>Lab 6 - Tiêu đề Lab 6</h2>
-        <p>Nội dung Lab 6...</p>
+        <h2>Lab 6 - CSS Animations and Transitions</h2>
+        <!-- Thêm nội dung cho Lab 6 tại đây -->
+        <p>
+          Nội dung Lab 6: Tạo các hiệu ứng động mượt mà cho các phần tử trên
+          trang.
+        </p>
       </div>
 
       <!-- Nội dung Lab 7 -->
       <div class="container lab-content" id="lab7" style="display: none">
-        <h2>Lab 7 - Tiêu đề Lab 7</h2>
-        <p>Nội dung Lab 7...</p>
+        <h2>Lab 7 - Advanced CSS Techniques</h2>
+        <!-- Thêm nội dung cho Lab 7 tại đây -->
+        <p>
+          Nội dung Lab 7: Áp dụng các kỹ thuật CSS nâng cao để cải thiện giao
+          diện và trải nghiệm người dùng.
+        </p>
       </div>
 
       <!-- Nội dung Lab 8 -->
       <div class="container lab-content" id="lab8" style="display: none">
-        <h2>Lab 8 - Tiêu đề Lab 8</h2>
-        <p>Nội dung Lab 8...</p>
+        <h2>Lab 8 - Responsive Web Design Techniques</h2>
+        <!-- Thêm nội dung cho Lab 8 tại đây -->
+        <p>
+          Nội dung Lab 8: Thiết kế giao diện web đáp ứng, đảm bảo tính tương
+          thích trên mọi thiết bị.
+        </p>
       </div>
     </main>
 
@@ -436,9 +488,6 @@
     >
       <i class="bi bi-arrow-up-short"></i>
     </a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

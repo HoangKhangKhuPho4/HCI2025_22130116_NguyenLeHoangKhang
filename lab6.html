@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 1 - User Interface</title>
+    <title>Lab 6 - JavaScript Programming</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -497,44 +497,14 @@
         color: #ffffff; /* Đổi màu văn bản thành trắng */
       }
 
-      .footer-contact a {
-        color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-contact a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
-      }
-
-      .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
-      }
-
       .footer-contact p a {
-        color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
-      }
-
-      .footer-contact a {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
-      }
-
-      .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
 
       /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
@@ -551,96 +521,6 @@
 
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
-      }
-
-      /* CSS dành riêng cho nút Review Pages với ID review-btn */
-      #review-btn {
-        background-color: #3498db; /* Màu nền xanh */
-        color: white; /* Màu chữ trắng */
-        padding: 10px 20px; /* Kích thước padding */
-        border-radius: 5px; /* Bo góc nút */
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center; /* Canh giữa icon và chữ */
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      #review-btn i {
-        margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-      }
-
-      /* Hiệu ứng hover dành riêng cho nút Review Pages */
-      #review-btn:hover {
-        background-color: #2980b9; /* Màu nền khi hover */
-        transform: scale(1.05); /* Phóng to nhẹ khi hover */
-      }
-
-      /* Định nghĩa lớp lab-button cho các nút Lab và nút Review Pages */
-      .lab-button {
-        padding: 12px 24px;
-        border-radius: 50px;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
-          background 0.3s, color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-transform: uppercase;
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none; /* Đảm bảo không có gạch chân */
-      }
-
-      /* Hiệu ứng khi hover */
-      .lab-button:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
-      }
-
-      /* Khi nút đang active */
-      .lab-button.active {
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        color: #ffffff;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Khi focus */
-      .lab-button:focus {
-        outline: none;
-        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
-      }
-
-      .lab-button,
-      .review-btn,
-      .download-btn,
-      .view-btn {
-        background: #1e90ff; /* Màu xanh dương bạn chọn */
-        color: #ffffff; /* Màu chữ trắng */
-        border: none;
-      }
-
-      .lab-button:hover,
-      .review-btn:hover,
-      .download-btn:hover,
-      .view-btn:hover {
-        background: #0d47a1; /* Màu xanh dương đậm hơn khi hover */
-        color: #ffffff;
-      }
-
-      a {
-        color: #1e90ff; /* Màu xanh dương cho các liên kết */
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: #0d47a1; /* Màu xanh đậm hơn khi hover */
-        text-decoration: underline;
       }
     </style>
   </head>
@@ -679,14 +559,11 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 1 - User Interface</h2>
+        <h2 class="text-center mb-4">Lab 6 - JavaScript Programming</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a
-            href="lab1.html"
-            class="btn btn-primary-custom lab1 lab-button active"
-          >
+          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
             <i class="bi bi-book"></i> Lab 1
           </a>
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
@@ -701,7 +578,10 @@
           <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
             <i class="bi bi-book"></i> Lab 5
           </a>
-          <a href="lab6.html" class="btn btn-info-custom lab6 lab-button">
+          <a
+            href="lab6.html"
+            class="btn btn-info-custom lab6 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 6
           </a>
           <a href="lab7.html" class="btn btn-light-custom lab7 lab-button">
@@ -730,116 +610,84 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi yêu cầu lab1, thiết kế giao diện cho chức năng user như
-                sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
-                github dạng: <em>XXX.github.com/lab1.html</em>
+                Cô gửi yêu cầu lab6, phát triển các tính năng JavaScript cho dự
+                án như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường
+                link github dạng: <em>XXX.github.com/lab6.html</em>
               </p>
-              <h4>User Interface Design Requirements:</h4>
+              <h4>JavaScript Programming Requirements:</h4>
               <ul>
                 <li>
-                  <strong>Text Input (Single-line):</strong> “Username”
+                  <strong>Dynamic Content:</strong>
                   <ul>
-                    <li>Must be unique, maximum 255 characters.</li>
                     <li>
-                      A text box with a hint (placeholder) like "Enter your
-                      username."
+                      Tạo các phần tử HTML động bằng JavaScript để cải thiện
+                      giao diện người dùng.
+                    </li>
+                    <li>
+                      Sử dụng DOM manipulation để cập nhật nội dung trang mà
+                      không cần tải lại.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong
-                    >Password Input (Single-line with hidden text):</strong
-                  >
-                  “Password”
+                  <strong>Form Validation:</strong>
                   <ul>
                     <li>
-                      Minimum password strength check, maximum 255 characters.
+                      Thực hiện kiểm tra dữ liệu nhập vào trên client-side trước
+                      khi gửi đến server.
                     </li>
                     <li>
-                      A text box that hides the text input, with a “Show/Hide”
-                      toggle.
+                      Hiển thị thông báo lỗi rõ ràng khi dữ liệu không hợp lệ.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Email Input:</strong> “Email Address”
+                  <strong>Event Handling:</strong>
                   <ul>
                     <li>
-                      Must be a valid email format and unique, maximum 255
-                      characters.
+                      Xử lý các sự kiện người dùng như click, hover, và nhập
+                      liệu để tương tác với trang web.
                     </li>
                     <li>
-                      A text box with a placeholder like "Enter your email."
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text Input (Single-line):</strong> “Full Name”
-                  <em>(optional)</em>
-                  <ul>
-                    <li>
-                      A regular text box, with a placeholder like "Enter your
-                      full name."
+                      Sử dụng các hàm callback để quản lý các sự kiện phức tạp.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Dropdown / Select Menu:</strong> “Role”
+                  <strong>API Integration:</strong>
                   <ul>
-                    <li>Required field.</li>
                     <li>
-                      A dropdown menu listing the available roles fetched from
-                      the system (e.g., Admin, User, etc.).
+                      Tích hợp với các API bên ngoài để lấy dữ liệu và hiển thị
+                      trên trang web.
+                    </li>
+                    <li>
+                      Sử dụng `fetch` hoặc `axios` để thực hiện các yêu cầu
+                      HTTP.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>File Upload or URL Input (for image URL):</strong>
-                  “Profile Picture”
+                  <strong>Asynchronous Programming:</strong>
                   <ul>
                     <li>
-                      An upload button or URL field that allows users to upload
-                      or enter a URL for their profile picture, with a preview
-                      box for the image.
+                      Sử dụng Promises và `async/await` để xử lý các tác vụ bất
+                      đồng bộ.
+                    </li>
+                    <li>
+                      Đảm bảo giao diện người dùng không bị đóng băng trong quá
+                      trình xử lý.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Account
-                  Created At”
+                  <strong>Performance Optimization:</strong>
                   <ul>
                     <li>
-                      Automatically populated field, no input needed. Display
-                      this as a timestamp or date.
+                      Tối ưu hóa mã JavaScript để cải thiện hiệu suất trang web.
                     </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Last
-                  Updated At”
-                  <ul>
                     <li>
-                      Automatically updated field when the user’s information is
-                      edited. Display this as a timestamp or date.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button:</strong> “Create Account” / “Save Changes”
-                  (depending on context)
-                  <ul>
-                    <li>
-                      A primary action button that submits the form. Ensure it's
-                      disabled until all required fields are validated.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button <em>(Optional)</em>:</strong> “Cancel”
-                  <ul>
-                    <li>
-                      A secondary action button that cancels the form submission
-                      and returns the user to the previous page.
+                      Sử dụng kỹ thuật như debouncing và throttling để quản lý
+                      các sự kiện nhanh.
                     </li>
                   </ul>
                 </li>
@@ -847,13 +695,16 @@
               <h4>Additional Considerations:</h4>
               <ul>
                 <li>
-                  Use inline validation messages under each input field for
-                  errors like "Username is already taken" or "Invalid email
-                  format."
+                  Tuân thủ các chuẩn mã hóa và đảm bảo mã JavaScript dễ đọc và
+                  bảo trì.
                 </li>
                 <li>
-                  Ensure the form is responsive, working well on both desktop
-                  and mobile.
+                  Kiểm tra và đảm bảo tính tương thích trên các trình duyệt phổ
+                  biến như Chrome, Firefox, Safari, và Edge.
+                </li>
+                <li>
+                  Đảm bảo các tính năng JavaScript không ảnh hưởng đến khả năng
+                  truy cập của trang web.
                 </li>
               </ul>
             </div>
@@ -866,13 +717,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperUser.jpg"
-                    alt="Design On Paper"
+                    src="assets/img/DesignPaperLab6.jpg"
+                    alt="Design On Paper Lab6"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperUser.jpg"
+                      href="assets/img/DesignPaperLab6.jpg"
                       download
                       class="download-btn"
                     >
@@ -885,20 +736,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignUser.png"
-                    alt="Design On Figma"
+                    src="assets/img/DesignLab6.png"
+                    alt="Design On Figma Lab6"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignUser.png"
+                      href="assets/img/DesignLab6.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link"
+                      href="https://www.figma.com/your-figma-link-lab6"
                       target="_blank"
                       class="view-btn"
                     >
@@ -914,14 +765,17 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab1/user_interface.html"
-                  title="user_interface"
+                  src="Lab6/javascript_programming.html"
+                  title="javascript_programming"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab1/user_interface.html" class="lab-button">
+                <a
+                  href="Lab6/javascript_programming.html"
+                  class="btn review-btn"
+                >
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -930,24 +784,6 @@
         </div>
       </div>
     </main>
-    <div id="implement" class="tab-item">
-      <h3>Implement</h3>
-      <div class="iframe-container">
-        <iframe
-          src="Lab1/user_interface.html"
-          title="user_interface"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <!-- Review Pages Button -->
-      <div class="button-group" style="margin-top: 20px">
-        <div class="button-group" style="margin-top: 20px">
-          <a href="Lab1/user_interface.html" id="review-btn">
-            <i class="bi bi-eye"></i> Review Pages
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -1127,7 +963,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 1
+      // Hàm thay đổi tab trong Lab 6
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");

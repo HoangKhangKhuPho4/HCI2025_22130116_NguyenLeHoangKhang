@@ -3,9 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 1 - User Interface</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>Lab 8 - Responsive Web Design Techniques</title>
+    <meta
+      name="description"
+      content="Lab 8: Responsive Web Design Techniques"
+    />
+    <meta name="keywords" content="CSS, Responsive Design, Web Development" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -497,24 +500,6 @@
         color: #ffffff; /* Đổi màu văn bản thành trắng */
       }
 
-      .footer-contact a {
-        color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-contact a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
-      }
-
-      .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
-      }
-
       .footer-contact p a {
         color: hsl(
           220,
@@ -526,15 +511,7 @@
       }
 
       .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
-      }
-
-      .footer-contact a {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
-      }
-
-      .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
 
       /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
@@ -551,96 +528,6 @@
 
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
-      }
-
-      /* CSS dành riêng cho nút Review Pages với ID review-btn */
-      #review-btn {
-        background-color: #3498db; /* Màu nền xanh */
-        color: white; /* Màu chữ trắng */
-        padding: 10px 20px; /* Kích thước padding */
-        border-radius: 5px; /* Bo góc nút */
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center; /* Canh giữa icon và chữ */
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      #review-btn i {
-        margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-      }
-
-      /* Hiệu ứng hover dành riêng cho nút Review Pages */
-      #review-btn:hover {
-        background-color: #2980b9; /* Màu nền khi hover */
-        transform: scale(1.05); /* Phóng to nhẹ khi hover */
-      }
-
-      /* Định nghĩa lớp lab-button cho các nút Lab và nút Review Pages */
-      .lab-button {
-        padding: 12px 24px;
-        border-radius: 50px;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
-          background 0.3s, color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-transform: uppercase;
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none; /* Đảm bảo không có gạch chân */
-      }
-
-      /* Hiệu ứng khi hover */
-      .lab-button:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
-      }
-
-      /* Khi nút đang active */
-      .lab-button.active {
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        color: #ffffff;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Khi focus */
-      .lab-button:focus {
-        outline: none;
-        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
-      }
-
-      .lab-button,
-      .review-btn,
-      .download-btn,
-      .view-btn {
-        background: #1e90ff; /* Màu xanh dương bạn chọn */
-        color: #ffffff; /* Màu chữ trắng */
-        border: none;
-      }
-
-      .lab-button:hover,
-      .review-btn:hover,
-      .download-btn:hover,
-      .view-btn:hover {
-        background: #0d47a1; /* Màu xanh dương đậm hơn khi hover */
-        color: #ffffff;
-      }
-
-      a {
-        color: #1e90ff; /* Màu xanh dương cho các liên kết */
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: #0d47a1; /* Màu xanh đậm hơn khi hover */
-        text-decoration: underline;
       }
     </style>
   </head>
@@ -679,14 +566,13 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 1 - User Interface</h2>
+        <h2 class="text-center mb-4">
+          Lab 8 - Responsive Web Design Techniques
+        </h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a
-            href="lab1.html"
-            class="btn btn-primary-custom lab1 lab-button active"
-          >
+          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
             <i class="bi bi-book"></i> Lab 1
           </a>
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
@@ -707,7 +593,10 @@
           <a href="lab7.html" class="btn btn-light-custom lab7 lab-button">
             <i class="bi bi-book"></i> Lab 7
           </a>
-          <a href="lab8.html" class="btn btn-dark-custom lab8 lab-button">
+          <a
+            href="lab8.html"
+            class="btn btn-dark-custom lab8 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 8
           </a>
         </div>
@@ -728,118 +617,76 @@
           <div class="tab-content">
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
-              <h3>Chào các em,</h3>
+              <h3>Yêu cầu Lab 8</h3>
               <p>
-                Cô gửi yêu cầu lab1, thiết kế giao diện cho chức năng user như
-                sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
-                github dạng: <em>XXX.github.com/lab1.html</em>
+                Giảng viên yêu cầu thiết kế và triển khai các kỹ thuật
+                Responsive Web Design cho dự án như sau. Các em cần nộp lại
+                đường link GitHub trước 11h59 ngày hôm nay dưới dạng:
+                <em>XXX.github.com/lab8.html</em>
               </p>
-              <h4>User Interface Design Requirements:</h4>
+              <h4>Responsive Web Design Requirements:</h4>
               <ul>
                 <li>
-                  <strong>Text Input (Single-line):</strong> “Username”
+                  <strong>Fluid Layouts:</strong>
                   <ul>
-                    <li>Must be unique, maximum 255 characters.</li>
                     <li>
-                      A text box with a hint (placeholder) like "Enter your
-                      username."
+                      Sử dụng các đơn vị linh hoạt như %, em, rem để xây dựng
+                      layout.
+                    </li>
+                    <li>
+                      Đảm bảo các thành phần trên trang tự điều chỉnh theo kích
+                      thước màn hình.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong
-                    >Password Input (Single-line with hidden text):</strong
-                  >
-                  “Password”
+                  <strong>Media Queries:</strong>
                   <ul>
                     <li>
-                      Minimum password strength check, maximum 255 characters.
+                      Sử dụng media queries để thay đổi layout và phong cách cho
+                      các thiết bị khác nhau (di động, tablet, desktop).
                     </li>
                     <li>
-                      A text box that hides the text input, with a “Show/Hide”
-                      toggle.
+                      Tạo ít nhất 3 breakpoint khác nhau để tối ưu giao diện.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Email Input:</strong> “Email Address”
+                  <strong>Responsive Images and Media:</strong>
                   <ul>
                     <li>
-                      Must be a valid email format and unique, maximum 255
-                      characters.
+                      Sử dụng hình ảnh linh hoạt và các kỹ thuật như `srcset` để
+                      tải hình ảnh phù hợp với kích thước màn hình.
                     </li>
                     <li>
-                      A text box with a placeholder like "Enter your email."
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text Input (Single-line):</strong> “Full Name”
-                  <em>(optional)</em>
-                  <ul>
-                    <li>
-                      A regular text box, with a placeholder like "Enter your
-                      full name."
+                      Đảm bảo video và iframe đều có khả năng đáp ứng với các
+                      kích thước màn hình khác nhau.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Dropdown / Select Menu:</strong> “Role”
+                  <strong>Flexbox and Grid:</strong>
                   <ul>
-                    <li>Required field.</li>
                     <li>
-                      A dropdown menu listing the available roles fetched from
-                      the system (e.g., Admin, User, etc.).
+                      Áp dụng Flexbox và CSS Grid để xây dựng layout linh hoạt
+                      và dễ dàng điều chỉnh.
+                    </li>
+                    <li>
+                      Kết hợp hai công nghệ này để tối ưu hóa giao diện cho các
+                      thiết bị khác nhau.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>File Upload or URL Input (for image URL):</strong>
-                  “Profile Picture”
+                  <strong>Navigation Adaptation:</strong>
                   <ul>
                     <li>
-                      An upload button or URL field that allows users to upload
-                      or enter a URL for their profile picture, with a preview
-                      box for the image.
+                      Thiết kế thanh điều hướng (navbar) linh hoạt, có thể
+                      chuyển đổi thành menu hamburger trên các thiết bị di động.
                     </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Account
-                  Created At”
-                  <ul>
                     <li>
-                      Automatically populated field, no input needed. Display
-                      this as a timestamp or date.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Last
-                  Updated At”
-                  <ul>
-                    <li>
-                      Automatically updated field when the user’s information is
-                      edited. Display this as a timestamp or date.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button:</strong> “Create Account” / “Save Changes”
-                  (depending on context)
-                  <ul>
-                    <li>
-                      A primary action button that submits the form. Ensure it's
-                      disabled until all required fields are validated.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button <em>(Optional)</em>:</strong> “Cancel”
-                  <ul>
-                    <li>
-                      A secondary action button that cancels the form submission
-                      and returns the user to the previous page.
+                      Đảm bảo người dùng dễ dàng truy cập các liên kết điều
+                      hướng trên mọi thiết bị.
                     </li>
                   </ul>
                 </li>
@@ -847,13 +694,16 @@
               <h4>Additional Considerations:</h4>
               <ul>
                 <li>
-                  Use inline validation messages under each input field for
-                  errors like "Username is already taken" or "Invalid email
-                  format."
+                  Kiểm tra tính tương thích của giao diện trên các trình duyệt
+                  phổ biến.
                 </li>
                 <li>
-                  Ensure the form is responsive, working well on both desktop
-                  and mobile.
+                  Tối ưu hóa thời gian tải trang bằng cách giảm kích thước tệp
+                  CSS và hình ảnh.
+                </li>
+                <li>
+                  Đảm bảo mã HTML và CSS được viết sạch sẽ, có tổ chức và dễ bảo
+                  trì.
                 </li>
               </ul>
             </div>
@@ -866,13 +716,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperUser.jpg"
-                    alt="Design On Paper"
+                    src="assets/img/DesignPaperLab8.jpg"
+                    alt="Design On Paper Lab8"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperUser.jpg"
+                      href="assets/img/DesignPaperLab8.jpg"
                       download
                       class="download-btn"
                     >
@@ -885,20 +735,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignUser.png"
-                    alt="Design On Figma"
+                    src="assets/img/DesignLab8.png"
+                    alt="Design On Figma Lab8"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignUser.png"
+                      href="assets/img/DesignLab8.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link"
+                      href="https://www.figma.com/your-figma-link-lab8"
                       target="_blank"
                       class="view-btn"
                     >
@@ -914,14 +764,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab1/user_interface.html"
-                  title="user_interface"
+                  src="Lab8/responsive_design.html"
+                  title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab1/user_interface.html" class="lab-button">
+                <a href="Lab8/responsive_design.html" class="btn review-btn">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -930,24 +780,6 @@
         </div>
       </div>
     </main>
-    <div id="implement" class="tab-item">
-      <h3>Implement</h3>
-      <div class="iframe-container">
-        <iframe
-          src="Lab1/user_interface.html"
-          title="user_interface"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <!-- Review Pages Button -->
-      <div class="button-group" style="margin-top: 20px">
-        <div class="button-group" style="margin-top: 20px">
-          <a href="Lab1/user_interface.html" id="review-btn">
-            <i class="bi bi-eye"></i> Review Pages
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -1127,18 +959,20 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 1
+      // Hàm thay đổi tab trong Lab 8
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
         tabItems.forEach((item) => {
           item.style.display = "none";
+          item.classList.remove("active");
         });
 
         // Hiển thị tab được chọn
         const selectedTab = document.getElementById(tabId);
         if (selectedTab) {
           selectedTab.style.display = "block";
+          selectedTab.classList.add("active");
         }
 
         // Xóa class active khỏi tất cả các tab

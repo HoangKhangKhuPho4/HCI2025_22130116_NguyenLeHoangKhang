@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 1 - User Interface</title>
+    <title>Lab 4 - Data Visualization</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -552,96 +552,6 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
-
-      /* CSS dành riêng cho nút Review Pages với ID review-btn */
-      #review-btn {
-        background-color: #3498db; /* Màu nền xanh */
-        color: white; /* Màu chữ trắng */
-        padding: 10px 20px; /* Kích thước padding */
-        border-radius: 5px; /* Bo góc nút */
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center; /* Canh giữa icon và chữ */
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      #review-btn i {
-        margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-      }
-
-      /* Hiệu ứng hover dành riêng cho nút Review Pages */
-      #review-btn:hover {
-        background-color: #2980b9; /* Màu nền khi hover */
-        transform: scale(1.05); /* Phóng to nhẹ khi hover */
-      }
-
-      /* Định nghĩa lớp lab-button cho các nút Lab và nút Review Pages */
-      .lab-button {
-        padding: 12px 24px;
-        border-radius: 50px;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
-          background 0.3s, color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-transform: uppercase;
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none; /* Đảm bảo không có gạch chân */
-      }
-
-      /* Hiệu ứng khi hover */
-      .lab-button:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
-      }
-
-      /* Khi nút đang active */
-      .lab-button.active {
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        color: #ffffff;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Khi focus */
-      .lab-button:focus {
-        outline: none;
-        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
-      }
-
-      .lab-button,
-      .review-btn,
-      .download-btn,
-      .view-btn {
-        background: #1e90ff; /* Màu xanh dương bạn chọn */
-        color: #ffffff; /* Màu chữ trắng */
-        border: none;
-      }
-
-      .lab-button:hover,
-      .review-btn:hover,
-      .download-btn:hover,
-      .view-btn:hover {
-        background: #0d47a1; /* Màu xanh dương đậm hơn khi hover */
-        color: #ffffff;
-      }
-
-      a {
-        color: #1e90ff; /* Màu xanh dương cho các liên kết */
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: #0d47a1; /* Màu xanh đậm hơn khi hover */
-        text-decoration: underline;
-      }
     </style>
   </head>
 
@@ -679,14 +589,11 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 1 - User Interface</h2>
+        <h2 class="text-center mb-4">Lab 4 - Data Visualization</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a
-            href="lab1.html"
-            class="btn btn-primary-custom lab1 lab-button active"
-          >
+          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
             <i class="bi bi-book"></i> Lab 1
           </a>
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
@@ -695,7 +602,10 @@
           <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
             <i class="bi bi-book"></i> Lab 3
           </a>
-          <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
+          <a
+            href="lab4.html"
+            class="btn btn-danger-custom lab4 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 4
           </a>
           <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
@@ -730,116 +640,96 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi yêu cầu lab1, thiết kế giao diện cho chức năng user như
-                sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
-                github dạng: <em>XXX.github.com/lab1.html</em>
+                Cô gửi yêu cầu lab4, thiết kế giao diện cho chức năng trực quan
+                hóa dữ liệu như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại
+                đường link github dạng: <em>XXX.github.com/lab4.html</em>
               </p>
-              <h4>User Interface Design Requirements:</h4>
+              <h4>Data Visualization Requirements:</h4>
               <ul>
                 <li>
-                  <strong>Text Input (Single-line):</strong> “Username”
+                  <strong>Chart Types:</strong> Include at least three types of
+                  charts (e.g., Bar Chart, Line Chart, Pie Chart).
                   <ul>
-                    <li>Must be unique, maximum 255 characters.</li>
+                    <li>Each chart should represent different datasets.</li>
                     <li>
-                      A text box with a hint (placeholder) like "Enter your
-                      username."
+                      Charts should be interactive, allowing users to hover and
+                      view data points.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong
-                    >Password Input (Single-line with hidden text):</strong
-                  >
-                  “Password”
+                  <strong>Responsive Design:</strong>
                   <ul>
                     <li>
-                      Minimum password strength check, maximum 255 characters.
-                    </li>
-                    <li>
-                      A text box that hides the text input, with a “Show/Hide”
-                      toggle.
+                      Ensure all charts are responsive and render correctly on
+                      various screen sizes.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Email Input:</strong> “Email Address”
+                  <strong>Data Sources:</strong>
                   <ul>
                     <li>
-                      Must be a valid email format and unique, maximum 255
-                      characters.
+                      Fetch data from external APIs or use static JSON files.
                     </li>
+                    <li>Data should be dynamically loaded into the charts.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Legend and Labels:</strong>
+                  <ul>
+                    <li>Include legends and labels for clarity.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Color Scheme:</strong>
+                  <ul>
                     <li>
-                      A text box with a placeholder like "Enter your email."
+                      Use a consistent and visually appealing color palette.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text Input (Single-line):</strong> “Full Name”
-                  <em>(optional)</em>
+                  <strong>Accessibility:</strong>
                   <ul>
                     <li>
-                      A regular text box, with a placeholder like "Enter your
-                      full name."
+                      Ensure charts are accessible, including proper ARIA
+                      labels.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Dropdown / Select Menu:</strong> “Role”
+                  <strong>Export Functionality:</strong>
                   <ul>
-                    <li>Required field.</li>
                     <li>
-                      A dropdown menu listing the available roles fetched from
-                      the system (e.g., Admin, User, etc.).
+                      Allow users to export charts as images (PNG, JPEG) or PDF.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>File Upload or URL Input (for image URL):</strong>
-                  “Profile Picture”
+                  <strong>Filtering and Sorting:</strong>
                   <ul>
                     <li>
-                      An upload button or URL field that allows users to upload
-                      or enter a URL for their profile picture, with a preview
-                      box for the image.
+                      Provide options for users to filter and sort the data
+                      displayed in the charts.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Account
-                  Created At”
+                  <strong>Performance:</strong>
                   <ul>
                     <li>
-                      Automatically populated field, no input needed. Display
-                      this as a timestamp or date.
+                      Optimize charts for performance to handle large datasets
+                      without lag.
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Last
-                  Updated At”
+                  <strong>Documentation:</strong>
                   <ul>
                     <li>
-                      Automatically updated field when the user’s information is
-                      edited. Display this as a timestamp or date.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button:</strong> “Create Account” / “Save Changes”
-                  (depending on context)
-                  <ul>
-                    <li>
-                      A primary action button that submits the form. Ensure it's
-                      disabled until all required fields are validated.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button <em>(Optional)</em>:</strong> “Cancel”
-                  <ul>
-                    <li>
-                      A secondary action button that cancels the form submission
-                      and returns the user to the previous page.
+                      Provide clear documentation on how to use the
+                      visualization tools.
                     </li>
                   </ul>
                 </li>
@@ -847,13 +737,15 @@
               <h4>Additional Considerations:</h4>
               <ul>
                 <li>
-                  Use inline validation messages under each input field for
-                  errors like "Username is already taken" or "Invalid email
-                  format."
+                  Ensure smooth transitions and animations for chart rendering.
                 </li>
                 <li>
-                  Ensure the form is responsive, working well on both desktop
-                  and mobile.
+                  Implement tooltips to display detailed information on data
+                  points.
+                </li>
+                <li>
+                  Maintain code readability and organization using modular
+                  JavaScript or frameworks if necessary.
                 </li>
               </ul>
             </div>
@@ -866,13 +758,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperUser.jpg"
-                    alt="Design On Paper"
+                    src="assets/img/DesignPaperLab4.jpg"
+                    alt="Design On Paper Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperUser.jpg"
+                      href="assets/img/DesignPaperLab4.jpg"
                       download
                       class="download-btn"
                     >
@@ -885,20 +777,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignUser.png"
-                    alt="Design On Figma"
+                    src="assets/img/DesignLab4.png"
+                    alt="Design On Figma Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignUser.png"
+                      href="assets/img/DesignLab4.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link"
+                      href="https://www.figma.com/your-figma-link-lab4"
                       target="_blank"
                       class="view-btn"
                     >
@@ -914,14 +806,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab1/user_interface.html"
-                  title="user_interface"
+                  src="Lab4/data_visualization.html"
+                  title="data_visualization"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab1/user_interface.html" class="lab-button">
+                <a href="Lab4/data_visualization.html" class="btn review-btn">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -930,24 +822,6 @@
         </div>
       </div>
     </main>
-    <div id="implement" class="tab-item">
-      <h3>Implement</h3>
-      <div class="iframe-container">
-        <iframe
-          src="Lab1/user_interface.html"
-          title="user_interface"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <!-- Review Pages Button -->
-      <div class="button-group" style="margin-top: 20px">
-        <div class="button-group" style="margin-top: 20px">
-          <a href="Lab1/user_interface.html" id="review-btn">
-            <i class="bi bi-eye"></i> Review Pages
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -1127,7 +1001,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 1
+      // Hàm thay đổi tab trong Lab
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");

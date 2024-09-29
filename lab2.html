@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 1 - User Interface</title>
+    <title>Lab 2 - Advanced Features</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -552,96 +552,6 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
-
-      /* CSS dành riêng cho nút Review Pages với ID review-btn */
-      #review-btn {
-        background-color: #3498db; /* Màu nền xanh */
-        color: white; /* Màu chữ trắng */
-        padding: 10px 20px; /* Kích thước padding */
-        border-radius: 5px; /* Bo góc nút */
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center; /* Canh giữa icon và chữ */
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      #review-btn i {
-        margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-      }
-
-      /* Hiệu ứng hover dành riêng cho nút Review Pages */
-      #review-btn:hover {
-        background-color: #2980b9; /* Màu nền khi hover */
-        transform: scale(1.05); /* Phóng to nhẹ khi hover */
-      }
-
-      /* Định nghĩa lớp lab-button cho các nút Lab và nút Review Pages */
-      .lab-button {
-        padding: 12px 24px;
-        border-radius: 50px;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
-          background 0.3s, color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-transform: uppercase;
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none; /* Đảm bảo không có gạch chân */
-      }
-
-      /* Hiệu ứng khi hover */
-      .lab-button:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
-      }
-
-      /* Khi nút đang active */
-      .lab-button.active {
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        color: #ffffff;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Khi focus */
-      .lab-button:focus {
-        outline: none;
-        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
-      }
-
-      .lab-button,
-      .review-btn,
-      .download-btn,
-      .view-btn {
-        background: #1e90ff; /* Màu xanh dương bạn chọn */
-        color: #ffffff; /* Màu chữ trắng */
-        border: none;
-      }
-
-      .lab-button:hover,
-      .review-btn:hover,
-      .download-btn:hover,
-      .view-btn:hover {
-        background: #0d47a1; /* Màu xanh dương đậm hơn khi hover */
-        color: #ffffff;
-      }
-
-      a {
-        color: #1e90ff; /* Màu xanh dương cho các liên kết */
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: #0d47a1; /* Màu xanh đậm hơn khi hover */
-        text-decoration: underline;
-      }
     </style>
   </head>
 
@@ -679,17 +589,17 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 1 - User Interface</h2>
+        <h2 class="text-center mb-4">Lab 2 - Advanced Features</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a
-            href="lab1.html"
-            class="btn btn-primary-custom lab1 lab-button active"
-          >
+          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
             <i class="bi bi-book"></i> Lab 1
           </a>
-          <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
+          <a
+            href="lab2.html"
+            class="btn btn-secondary-custom lab2 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 2
           </a>
           <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
@@ -730,116 +640,128 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi yêu cầu lab1, thiết kế giao diện cho chức năng user như
-                sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
-                github dạng: <em>XXX.github.com/lab1.html</em>
+                Cô gửi yêu cầu lab2, triển khai các tính năng nâng cao cho hệ
+                thống như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường
+                link github dạng: <em>XXX.github.com/lab2.html</em>
               </p>
-              <h4>User Interface Design Requirements:</h4>
+              <h4>Advanced Features Requirements:</h4>
               <ul>
                 <li>
-                  <strong>Text Input (Single-line):</strong> “Username”
+                  <strong>User Authentication:</strong>
                   <ul>
-                    <li>Must be unique, maximum 255 characters.</li>
                     <li>
-                      A text box with a hint (placeholder) like "Enter your
-                      username."
+                      Implement OAuth 2.0 for third-party authentication (e.g.,
+                      Google, Facebook).
                     </li>
+                    <li>
+                      Ensure secure password storage using hashing algorithms
+                      like bcrypt.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Responsive Design:</strong>
+                  <ul>
+                    <li>
+                      Ensure the application is fully responsive and works
+                      seamlessly on all devices.
+                    </li>
+                    <li>Utilize CSS Flexbox and Grid for layout management.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Real-time Notifications:</strong>
+                  <ul>
+                    <li>
+                      Implement real-time notifications using WebSockets or
+                      libraries like Socket.io.
+                    </li>
+                    <li>
+                      Users should receive notifications for important events
+                      (e.g., account updates).
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>API Integration:</strong>
+                  <ul>
+                    <li>
+                      Integrate with at least two external APIs (e.g., weather
+                      API, payment gateway).
+                    </li>
+                    <li>
+                      Handle API responses and display relevant data to users.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Data Visualization:</strong>
+                  <ul>
+                    <li>
+                      Implement data visualization using libraries like Chart.js
+                      or D3.js.
+                    </li>
+                    <li>
+                      Provide users with graphical representations of their
+                      data.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Accessibility:</strong>
+                  <ul>
+                    <li>
+                      Ensure the application meets WCAG 2.1 accessibility
+                      standards.
+                    </li>
+                    <li>
+                      Implement features like keyboard navigation and screen
+                      reader support.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Performance Optimization:</strong>
+                  <ul>
+                    <li>Optimize images and assets for faster load times.</li>
+                    <li>
+                      Implement code-splitting and lazy loading where
+                      appropriate.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Unit and Integration Testing:</strong>
+                  <ul>
+                    <li>
+                      Write comprehensive tests using frameworks like Jest or
+                      Mocha.
+                    </li>
+                    <li>Ensure at least 80% code coverage.</li>
                   </ul>
                 </li>
                 <li>
                   <strong
-                    >Password Input (Single-line with hidden text):</strong
+                    >Continuous Integration/Continuous Deployment
+                    (CI/CD):</strong
                   >
-                  “Password”
                   <ul>
                     <li>
-                      Minimum password strength check, maximum 255 characters.
+                      Set up a CI/CD pipeline using tools like GitHub Actions or
+                      Travis CI.
                     </li>
-                    <li>
-                      A text box that hides the text input, with a “Show/Hide”
-                      toggle.
-                    </li>
+                    <li>Automate testing and deployment processes.</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Email Input:</strong> “Email Address”
+                  <strong>Documentation:</strong>
                   <ul>
                     <li>
-                      Must be a valid email format and unique, maximum 255
-                      characters.
+                      Provide clear and detailed documentation for the project.
                     </li>
                     <li>
-                      A text box with a placeholder like "Enter your email."
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text Input (Single-line):</strong> “Full Name”
-                  <em>(optional)</em>
-                  <ul>
-                    <li>
-                      A regular text box, with a placeholder like "Enter your
-                      full name."
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Dropdown / Select Menu:</strong> “Role”
-                  <ul>
-                    <li>Required field.</li>
-                    <li>
-                      A dropdown menu listing the available roles fetched from
-                      the system (e.g., Admin, User, etc.).
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>File Upload or URL Input (for image URL):</strong>
-                  “Profile Picture”
-                  <ul>
-                    <li>
-                      An upload button or URL field that allows users to upload
-                      or enter a URL for their profile picture, with a preview
-                      box for the image.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Account
-                  Created At”
-                  <ul>
-                    <li>
-                      Automatically populated field, no input needed. Display
-                      this as a timestamp or date.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Last
-                  Updated At”
-                  <ul>
-                    <li>
-                      Automatically updated field when the user’s information is
-                      edited. Display this as a timestamp or date.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button:</strong> “Create Account” / “Save Changes”
-                  (depending on context)
-                  <ul>
-                    <li>
-                      A primary action button that submits the form. Ensure it's
-                      disabled until all required fields are validated.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Button <em>(Optional)</em>:</strong> “Cancel”
-                  <ul>
-                    <li>
-                      A secondary action button that cancels the form submission
-                      and returns the user to the previous page.
+                      Include setup instructions, API endpoints, and usage
+                      guides.
                     </li>
                   </ul>
                 </li>
@@ -847,13 +769,12 @@
               <h4>Additional Considerations:</h4>
               <ul>
                 <li>
-                  Use inline validation messages under each input field for
-                  errors like "Username is already taken" or "Invalid email
-                  format."
+                  Follow best practices for code quality and maintainability,
+                  including proper commenting and adherence to coding standards.
                 </li>
                 <li>
-                  Ensure the form is responsive, working well on both desktop
-                  and mobile.
+                  Ensure cross-browser compatibility, supporting the latest
+                  versions of major browsers.
                 </li>
               </ul>
             </div>
@@ -866,13 +787,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperUser.jpg"
+                    src="assets/img/DesignPaperAdvanced.jpg"
                     alt="Design On Paper"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperUser.jpg"
+                      href="assets/img/DesignPaperAdvanced.jpg"
                       download
                       class="download-btn"
                     >
@@ -885,20 +806,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignUser.png"
+                    src="assets/img/DesignAdvanced.png"
                     alt="Design On Figma"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignUser.png"
+                      href="assets/img/DesignAdvanced.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link"
+                      href="https://www.figma.com/your-figma-link-lab2"
                       target="_blank"
                       class="view-btn"
                     >
@@ -914,14 +835,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab1/user_interface.html"
-                  title="user_interface"
+                  src="Lab2/advanced_features.html"
+                  title="advanced_features"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab1/user_interface.html" class="lab-button">
+                <a href="Lab2/advanced_features.html" class="btn review-btn">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -934,18 +855,19 @@
       <h3>Implement</h3>
       <div class="iframe-container">
         <iframe
-          src="Lab1/user_interface.html"
-          title="user_interface"
+          src="Lab2/advanced_features.html"
+          title="advanced_features"
           allowfullscreen
         ></iframe>
       </div>
       <!-- Review Pages Button -->
       <div class="button-group" style="margin-top: 20px">
-        <div class="button-group" style="margin-top: 20px">
-          <a href="Lab1/user_interface.html" id="review-btn">
-            <i class="bi bi-eye"></i> Review Pages
-          </a>
-        </div>
+        <a
+          href="Lab2/advanced_features.html"
+          class="btn btn-primary-custom lab9 lab-button"
+        >
+          <i class="bi bi-eye"></i> Review Pages
+        </a>
       </div>
     </div>
 
@@ -1127,7 +1049,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 1
+      // Hàm thay đổi tab trong Lab 2
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
