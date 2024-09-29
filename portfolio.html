@@ -49,6 +49,67 @@
       * Author: Nguyen Le Hoang Khang
       * Updated: September 2024
       -->
+
+    <!-- Custom CSS for Scroll-to-Top Button -->
+    <style>
+      :root {
+        --accent-color: #007bff; /* Màu xanh nước biển */
+        --contrast-color: #ffffff; /* Màu trắng */
+        /* Các biến khác nếu cần */
+      }
+
+      /* Scroll Top Button */
+      .scroll-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s, visibility 0.4s, background-color 0.3s;
+        z-index: 1000;
+      }
+
+      .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-top:hover {
+        background-color: #0056b3; /* Màu nền khi hover */
+      }
+
+      .scroll-top i {
+        font-size: 24px;
+      }
+
+      /* Responsive Adjustments for Scroll Top Button */
+      @media (max-width: 576px) {
+        .scroll-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .scroll-top i {
+          font-size: 20px;
+        }
+      }
+
+      /* Đảm bảo nội dung không bị đè lên bởi header cố định */
+      body.portfolio-page {
+        padding-top: 80px; /* Điều chỉnh theo độ cao của header */
+      }
+    </style>
   </head>
 
   <body class="portfolio-page">
@@ -263,8 +324,7 @@
               </div>
               <!-- End Portfolio Item -->
 
-              <!-- Additional Portfolio Items... -->
-              <!-- You can add or edit portfolio items below according to your actual projects -->
+              <!-- Portfolio Item 5 -->
               <div
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
               >
@@ -479,5 +539,30 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Custom JS for Scroll-to-Top Button -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollTopBtn = document.getElementById("scroll-top");
+
+        // Hiển thị nút khi cuộn xuống hơn 100px
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            scrollTopBtn.classList.add("show");
+          } else {
+            scrollTopBtn.classList.remove("show");
+          }
+        });
+
+        // Cuộn mượt về đầu trang khi nhấp vào nút
+        scrollTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
   </body>
 </html>

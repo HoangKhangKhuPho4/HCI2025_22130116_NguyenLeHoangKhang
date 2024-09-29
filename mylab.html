@@ -37,6 +37,14 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!--
+      * Custom My Labs Page for Hoang Khang
+      * Author: Nguyen Le Hoang Khang
+      * Updated: September 2024
+      -->
+
+    <!-- Custom CSS -->
     <style>
       /* Nút Lab - Sử dụng chung cho tất cả */
       .lab-button {
@@ -90,6 +98,66 @@
       .lab-button i {
         font-size: 18px;
       }
+
+      /* Scroll Top Button */
+      .scroll-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        background-color: var(
+          --accent-color,
+          #007bff
+        ); /* Sử dụng biến màu hoặc màu mặc định */
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s, visibility 0.4s, background-color 0.3s;
+        z-index: 1000;
+      }
+
+      .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-top:hover {
+        background-color: #0056b3; /* Màu nền khi hover */
+      }
+
+      .scroll-top i {
+        font-size: 24px;
+      }
+
+      /* Responsive Adjustments for Scroll Top Button */
+      @media (max-width: 576px) {
+        .scroll-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .scroll-top i {
+          font-size: 20px;
+        }
+      }
+
+      /* Đảm bảo nội dung không bị đè lên bởi header cố định */
+      body.index-page {
+        padding-top: 80px; /* Điều chỉnh theo độ cao của header */
+      }
+
+      /* Nội dung Lab */
+      .lab-content {
+        margin-top: 50px;
+      }
     </style>
   </head>
 
@@ -126,7 +194,7 @@
 
     <!-- Main Content -->
     <main class="main">
-      <div class="container text-center" style="margin-top: 100px">
+      <div class="container text-center">
         <h2 class="mb-4">My Labs</h2>
         <div class="lab-buttons">
           <!-- Lab 1 Được Tách Thành Liên Kết với Icon -->
@@ -369,6 +437,9 @@
       <i class="bi bi-arrow-up-short"></i>
     </a>
 
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -383,6 +454,8 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Custom JS -->
     <script>
       // Hàm hiển thị nội dung Lab
       function showLabContent(labId) {
@@ -419,14 +492,32 @@
         });
       });
 
-      // Hiển thị nút Scroll Top khi cuộn xuống
-      window.addEventListener("scroll", function () {
-        const scrollTop = document.getElementById("scroll-top");
-        if (window.pageYOffset > 300) {
-          scrollTop.classList.add("show");
-        } else {
-          scrollTop.classList.remove("show");
-        }
+      // Hàm cuộn mượt về đầu trang
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Xử lý nút Scroll Top
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollTopBtn = document.getElementById("scroll-top");
+
+        // Hiển thị nút khi cuộn xuống hơn 300px
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add("show");
+          } else {
+            scrollTopBtn.classList.remove("show");
+          }
+        });
+
+        // Cuộn mượt về đầu trang khi nhấp vào nút
+        scrollTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          scrollToTop();
+        });
       });
     </script>
   </body>

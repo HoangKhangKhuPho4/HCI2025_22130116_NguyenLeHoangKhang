@@ -19,26 +19,25 @@
   --nav-font: "Poppins", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* Global Colors */
 :root {
-  --background-color: #000000; /* Background color for the entire website, including individual sections */
-  --default-color: #fafafa; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #18d26e; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #1a1a1a; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #000000;
+  --default-color: #fafafa;
+  --heading-color: #ffffff;
+  --accent-color: #007bff; /* Thay đổi từ xanh lá cây (#18d26e) thành xanh nước biển */
+  --surface-color: #1a1a1a;
+  --contrast-color: #000000;
 }
-
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Nav Menu Colors */
 :root {
-  --nav-color: #fafafa; /* The default color of the main navmenu links */
-  --nav-hover-color: #18d26e; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #1a1a1a; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #1a1a1a; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #fafafa; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #18d26e; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #fafafa;
+  --nav-hover-color: #007bff; /* Thay đổi từ xanh lá cây thành xanh nước biển */
+  --nav-mobile-background-color: #1a1a1a;
+  --nav-dropdown-background-color: #1a1a1a;
+  --nav-dropdown-color: #fafafa;
+  --nav-dropdown-hover-color: #007bff; /* Thay đổi từ xanh lá cây thành xanh nước biển */
 }
-
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
@@ -444,29 +443,69 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 /* Styling Footer với Chữ Màu Xanh Lá Cây */
+/* Footer Styling */
+
+.footer-contact h4 {
+  color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
+}
+
+.footer-contact a {
+  color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho liên kết */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+  color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+}
+
+.newsletter-form input[type="email"] {
+  background-color: hsl(220, 0%, 95%); /* Màu nền cho ô email */
+  border: 1px solid hsl(220, 100%, 50%); /* Viền xanh nước biển */
+  padding: 8px 12px;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background-color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho nút gửi */
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: hsl(220, 100%, 60%); /* Xanh nước biển nhạt hơn khi hover */
+}
+
+.footer-contact strong {
+  color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho chữ đậm */
+}
+
 .footer {
-  background-color: hsl(220, 20%, 20%); /* Màu nền giữ nguyên (xanh đậm) */
-  color: hsl(
-    120,
-    0%,
-    95%
-  ); /* Màu chữ gần như trắng (có thể điều chỉnh nếu cần) */
+  background-color: hsl(220, 20%, 20%);
+  color: hsl(220, 0%, 95%);
   padding: 60px 0 20px;
   font-family: "Poppins", sans-serif;
 }
 
 .footer a {
-  color: hsl(120, 100%, 50%); /* Màu xanh lá cây đậm cho liên kết */
+  color: hsl(220, 100%, 50%); /* Thay đổi từ xanh lá cây thành xanh nước biển */
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footer a:hover {
-  color: hsl(120, 100%, 60%); /* Màu xanh lá cây nhạt hơn khi hover */
+  color: hsl(
+    220,
+    100%,
+    60%
+  ); /* Thay đổi từ xanh lá cây nhạt thành xanh nước biển nhạt hơn */
 }
 
 .footer h4 {
-  color: hsl(120, 100%, 60%);
+  color: hsl(220, 100%, 60%);
   margin-bottom: 20px;
   font-size: 18px;
   position: relative;
@@ -477,22 +516,21 @@ h6 {
   content: "";
   width: 50px;
   height: 2px;
-  background-color: hsl(120, 100%, 50%);
+  background-color: hsl(
+    220,
+    100%,
+    50%
+  ); /* Thay đổi từ xanh lá cây thành xanh nước biển */
   position: absolute;
   left: 0;
   bottom: 0;
 }
 
-.footer-content .row > div {
-  margin-bottom: 30px;
-}
-
 .footer-about p,
 .footer-contact p {
-  color: hsl(120, 0%, 85%); /* Màu xám nhẹ cho văn bản phụ */
+  color: hsl(220, 0%, 85%);
   line-height: 1.6;
 }
-
 .social-links {
   margin-top: 15px;
 }
@@ -534,6 +572,29 @@ h6 {
 
 .footer-contact p a {
   color: hsl(120, 100%, 50%); /* Màu xanh lá cây cho liên kết trong contact */
+}
+
+.footer-links ul li a i,
+.footer-services ul li a i {
+  margin-right: 8px;
+  color: hsl(220, 100%, 50%); /* Thay đổi từ xanh lá cây thành xanh nước biển */
+}
+
+.footer-contact p a {
+  color: hsl(220, 100%, 50%); /* Thay đổi từ xanh lá cây thành xanh nước biển */
+}
+
+.footer-bottom .sitename {
+  color: hsl(220, 100%, 50%); /* Thay đổi từ xanh lá cây thành xanh nước biển */
+}
+
+.footer-credits a {
+  color: hsl(220, 100%, 50%); /* Thay đổi từ xanh lá cây thành xanh nước biển */
+}
+
+.footer-credits a:hover {
+  color: hsl(220, 100%, 60%);
+  text-decoration: underline;
 }
 
 .newsletter-form {
@@ -663,38 +724,93 @@ h6 {
   }
 }
 
+.footer-contact p {
+  color: #ffffff; /* Đổi màu văn bản thành trắng */
+}
+
+.footer-contact a {
+  color: hsl(
+    220,
+    100%,
+    50%
+  ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+  color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+}
+
+.footer-contact p {
+  color: #ffffff; /* Đổi màu văn bản thành trắng */
+}
+
+.footer-contact p a {
+  color: hsl(
+    220,
+    100%,
+    50%
+  ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact p a:hover {
+  color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+}
+
+.footer-contact a {
+  color: #ffffff; /* Đổi màu văn bản thành trắng */
+}
+
+.footer-contact p {
+  color: #ffffff; /* Đổi màu văn bản thành trắng */
+}
+
+/* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
+.footer-contact p strong {
+  color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
+}
+
+/* Màu cho nội dung phía sau tiêu đề */
+.footer-contact p a {
+  color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact p a:hover {
+  color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+}
+
+.newsletter-form button {
+  background-color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho nút */
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: hsl(220, 100%, 60%); /* Xanh nước biển nhạt hơn khi hover */
+}
+
+.newsletter-form button i {
+  color: white; /* Màu của biểu tượng trong nút */
+}
+
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
+/* Scroll Top Button */
 .scroll-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
   background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
 }
 
 .scroll-top:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
   color: var(--contrast-color);
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
-  bottom: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -704,6 +820,42 @@ h6 {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
+}
+
+/* Scroll Top Button */
+.scroll-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: var(
+    --accent-color,
+    #007bff
+  ); /* Sử dụng biến màu hoặc màu mặc định */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s, background-color 0.3s;
+  z-index: 1000;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+}
+
+.scroll-top i {
+  font-size: 24px;
 }
 
 /*--------------------------------------------------------------
@@ -1056,6 +1208,7 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
+/* Testimonials Section */
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
   overflow: hidden;
