@@ -187,6 +187,25 @@
       .lab-content p {
         color: #e0e0e0;
       }
+
+      /* Apply hover effect even when the button is active */
+      .lab-button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(45deg, #66b2ff, #4da6ff);
+        color: #ff8c00;
+      }
+
+      /* Modify the active state to ensure hover works */
+      .lab-button.active:hover {
+        background: linear-gradient(
+          45deg,
+          #66b2ff,
+          #4da6ff
+        ); /* Same as the hover effect */
+        color: #ff8c00;
+      }
     </style>
   </head>
 
