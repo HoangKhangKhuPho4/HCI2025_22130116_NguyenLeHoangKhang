@@ -80,6 +80,7 @@
       }
 
       /* Định nghĩa lớp lab-button cho các nút Lab */
+      /* General Lab Button Styles */
       .lab-button {
         padding: 12px 24px;
         border-radius: 50px;
@@ -98,20 +99,32 @@
         text-decoration: none; /* Đảm bảo không có gạch chân */
       }
 
+      /* Hover Styles for All Lab Buttons */
       .lab-button:hover {
         transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
+        background: linear-gradient(
+          45deg,
+          #66b2ff,
+          #4da6ff
+        ); /* Hover background */
+        color: #ff8c00; /* Hover text color */
       }
 
+      /* Active Button Styles */
       .lab-button.active {
         background: linear-gradient(45deg, #1e90ff, #1565c0);
         color: #ffffff;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
       }
 
+      /* Ensure hover on active button changes text color */
+      .lab-button.active:hover {
+        color: #ff8c00; /* Màu cam khi hover */
+      }
+
+      /* Focus Styles for Accessibility */
       .lab-button:focus {
         outline: none;
         box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
@@ -458,6 +471,7 @@
         display: flex;
       }
 
+      /* Footer Contact */
       .footer-contact a {
         color: hsl(220, 100%, 50%); /* Màu xanh nước biển */
         text-decoration: none;
@@ -468,6 +482,25 @@
         color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
       }
 
+      .footer-contact p {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      .footer-contact p strong {
+        color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
+      }
+
+      .footer-contact p a {
+        color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+      }
+
+      /* Newsletter Form */
       .newsletter-form input[type="email"] {
         background-color: hsl(220, 0%, 95%); /* Màu nền cho ô email */
         border: 1px solid hsl(220, 100%, 50%); /* Viền xanh nước biển */
@@ -494,40 +527,6 @@
           100%,
           60%
         ); /* Xanh nước biển nhạt hơn khi hover */
-      }
-
-      .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
-      }
-
-      .footer-contact p a {
-        color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
-      }
-
-      /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
-      .footer-contact p strong {
-        color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
-      }
-
-      /* Màu cho nội dung phía sau tiêu đề */
-      .footer-contact p a {
-        color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
     </style>
   </head>

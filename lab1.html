@@ -58,16 +58,13 @@
         color: #ffffff; /* Màu chữ trắng */
       }
 
-      /* Updated Navbar Link Styles */
       .navmenu ul li a {
         color: #e0e0e0; /* Màu chữ sáng cho liên kết */
         transition: color 0.3s;
-        text-decoration: none; /* Remove underline by default */
       }
 
       .navmenu ul li a:hover {
         color: #1e88e5; /* Màu khi hover */
-        text-decoration: none; /* Ensure underline is not added when hovered */
       }
 
       /* Lab Buttons */
@@ -80,7 +77,7 @@
       }
 
       /* Định nghĩa lớp lab-button cho các nút Lab */
-      /* Corrected styles for the lab-button */
+      /* General Lab Button Styles */
       .lab-button {
         padding: 12px 24px;
         border-radius: 50px;
@@ -99,32 +96,32 @@
         text-decoration: none; /* Ensure no underline */
       }
 
-      /* Apply hover to all buttons, even if they're not active */
+      /* Hover Styles for All Lab Buttons */
       .lab-button:hover {
-        transform: scale(1.05); /* Enlarge when hovered */
+        transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         background: linear-gradient(
           45deg,
           #66b2ff,
           #4da6ff
-        ); /* Change background on hover */
-        color: #ff8c00; /* Change text color on hover */
-        text-decoration: none;
+        ); /* Hover background */
+        color: #ff8c00; /* Hover text color */
       }
 
-      /* Active button styles - only for the active lab button */
+      /* Active Button Styles */
       .lab-button.active {
-        background: linear-gradient(
-          45deg,
-          #1e90ff,
-          #1565c0
-        ); /* Original background */
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
         color: #ffffff;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
       }
 
-      /* Focus effect to improve accessibility */
+      /* Ensure hover on active button changes text color */
+      .lab-button.active:hover {
+        color: #ff8c00; /* Màu cam khi hover */
+      }
+
+      /* Focus Styles for Accessibility */
       .lab-button:focus {
         outline: none;
         box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
@@ -542,7 +539,7 @@
       }
 
       .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
 
       .footer-contact a {
@@ -567,106 +564,6 @@
 
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
-      }
-
-      /* CSS dành riêng cho nút Review Pages với ID review-btn */
-      #review-btn {
-        background-color: #3498db; /* Màu nền xanh */
-        color: white; /* Màu chữ trắng */
-        padding: 10px 20px; /* Kích thước padding */
-        border-radius: 5px; /* Bo góc nút */
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center; /* Canh giữa icon và chữ */
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      #review-btn i {
-        margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-      }
-
-      /* Hiệu ứng hover dành riêng cho nút Review Pages */
-      #review-btn:hover {
-        background-color: #2980b9; /* Màu nền khi hover */
-        transform: scale(1.05); /* Phóng to nhẹ khi hover */
-      }
-
-      /* Định nghĩa lớp lab-button cho các nút Lab và nút Review Pages */
-      .lab-button {
-        padding: 12px 24px;
-        border-radius: 50px;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
-          background 0.3s, color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-transform: uppercase;
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none; /* Đảm bảo không có gạch chân */
-      }
-
-      /* Hiệu ứng khi hover */
-      .lab-button:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
-      }
-
-      /* Khi nút đang active */
-      .lab-button.active {
-        background: linear-gradient(45deg, #1e90ff, #1565c0);
-        color: #ffffff;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Khi focus */
-      .lab-button:focus {
-        outline: none;
-        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
-      }
-
-      .lab-button,
-      .review-btn,
-      .download-btn,
-      .view-btn {
-        background: #1e90ff; /* Màu xanh dương bạn chọn */
-        color: #ffffff; /* Màu chữ trắng */
-        border: none;
-      }
-
-      .lab-button:hover,
-      .review-btn:hover,
-      .download-btn:hover,
-      .view-btn:hover {
-        background: #0d47a1; /* Màu xanh dương đậm hơn khi hover */
-        color: #ffffff;
-      }
-
-      a {
-        color: #1e90ff; /* Màu xanh dương cho các liên kết */
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: #0d47a1; /* Màu xanh đậm hơn khi hover */
-        text-decoration: underline;
-      }
-
-      /* CSS cho liên kết trong footer */
-      .footer a {
-        text-decoration: none; /* Bỏ gạch chân mặc định */
-      }
-
-      .footer a:hover {
-        text-decoration: none; /* Đảm bảo không có gạch chân khi rê chuột vào */
-        color: #1e88e5; /* Bạn có thể thêm hiệu ứng thay đổi màu khi hover */
       }
     </style>
   </head>
