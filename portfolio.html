@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -50,7 +50,7 @@
       * Updated: September 2024
       -->
 
-    <!-- Custom CSS for Scroll-to-Top Button -->
+    <!-- Custom CSS for Scroll-to-Top Button and Portfolio Image Styling -->
     <style>
       :root {
         --accent-color: #007bff; /* Màu xanh nước biển */
@@ -108,6 +108,74 @@
       /* Đảm bảo nội dung không bị đè lên bởi header cố định */
       body.portfolio-page {
         padding-top: 80px; /* Điều chỉnh theo độ cao của header */
+      }
+
+      /* Container cho hình ảnh */
+      .portfolio-img-container {
+        width: 100%;
+        padding-top: 75%; /* Tỷ lệ khung hình 4:3 */
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px; /* Tùy chọn: bo góc cho đẹp */
+      }
+
+      /* Hình ảnh bên trong container */
+      .portfolio-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cắt hình ảnh để vừa khít */
+        object-position: center; /* Tâm hình ảnh */
+        transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+      }
+
+      .portfolio-img-container:hover .portfolio-img {
+        transform: scale(1.05); /* Phóng to nhẹ khi hover */
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 576px) {
+        .portfolio-img-container {
+          padding-top: 75%; /* Giữ tỷ lệ khung hình */
+        }
+      }
+
+      /* Portfolio Overlay Styling */
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .portfolio-img-container:hover .portfolio-overlay {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .github-link {
+        color: var(--contrast-color);
+        font-size: 32px;
+        transition: color 0.3s ease;
+      }
+
+      .github-link:hover {
+        color: #ffd700; /* Màu vàng khi hover */
+      }
+
+      /* Đảm bảo overlay không che các phần tử khác */
+      .portfolio-content {
+        position: relative;
       }
     </style>
   </head>
@@ -192,6 +260,7 @@
               <li data-filter=".filter-product">Product</li>
               <li data-filter=".filter-branding">Branding</li>
               <li data-filter=".filter-books">Books</li>
+              <!-- Bạn có thể thêm các bộ lọc mới ở đây -->
             </ul>
             <!-- End Portfolio Filters -->
 
@@ -205,27 +274,35 @@
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
               >
                 <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/app-1.jpg"
-                    class="img-fluid"
-                    alt="App 1"
-                  />
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/portfolio/app-1.jpg"
+                      class="img-fluid portfolio-img"
+                      alt="App 1"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-app-1"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
                   <div class="portfolio-info">
                     <h4>App 1</h4>
                     <p>Efficient Task Management</p>
                     <a
-                      href="assets/img/portfolio/app-1.jpg"
-                      title="App 1"
-                      data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
+                      href="https://hoangkhangkhupho4.github.io/project-app-1/"
+                      target="_blank"
+                      title="Live Demo"
                       class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                    >
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -236,27 +313,35 @@
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
               >
                 <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/product-1.jpg"
-                    class="img-fluid"
-                    alt="Product 1"
-                  />
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/screencapture-hoangkhangkhupho4-github-io-WebNgheNhac-2024-09-30-23_13_12.png"
+                      class="img-fluid portfolio-img"
+                      alt="Product 1"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-product-1"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
                   <div class="portfolio-info">
-                    <h4>Product 1</h4>
+                    <h4>Web nghe nhạc</h4>
                     <p>E-commerce Application</p>
                     <a
-                      href="assets/img/portfolio/product-1.jpg"
-                      title="Product 1"
-                      data-gallery="portfolio-gallery-product"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
+                      href="https://hoangkhangkhupho4.github.io/WebNgheNhac/"
+                      target="_blank"
+                      title="Live Demo"
                       class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                    >
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -267,27 +352,35 @@
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding"
               >
                 <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/branding-1.jpg"
-                    class="img-fluid"
-                    alt="Branding 1"
-                  />
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/screencapture-hoangkhangkhupho4-github-io-WebBanHang-2024-09-30-23_10_01.png"
+                      class="img-fluid portfolio-img"
+                      alt="Branding 1"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-branding-1"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
                   <div class="portfolio-info">
-                    <h4>Branding 1</h4>
+                    <h4>Quản lý nhà hàng</h4>
                     <p>Logo and Brand Identity Design</p>
                     <a
-                      href="assets/img/portfolio/branding-1.jpg"
-                      title="Branding 1"
-                      data-gallery="portfolio-gallery-branding"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
+                      href="https://hoangkhangkhupho4.github.io/WebBanHang/"
+                      target="_blank"
+                      title="Live Demo"
                       class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                    >
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -298,27 +391,35 @@
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books"
               >
                 <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/books-1.jpg"
-                    class="img-fluid"
-                    alt="Books 1"
-                  />
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/screencapture-hoangkhangkhupho4-github-io-2024-09-30-23_21_38.png"
+                      class="img-fluid portfolio-img"
+                      alt="Books 1"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://hoangkhangkhupho4.github.io/"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
                   <div class="portfolio-info">
                     <h4>Books 1</h4>
                     <p>Writing and Publishing eBooks</p>
                     <a
-                      href="assets/img/portfolio/books-1.jpg"
-                      title="Books 1"
-                      data-gallery="portfolio-gallery-book"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
+                      href="https://hoangkhangkhupho4.github.io/"
+                      target="_blank"
+                      title="Live Demo"
                       class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                    >
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -329,27 +430,35 @@
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
               >
                 <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/app-2.jpg"
-                    class="img-fluid"
-                    alt="App 2"
-                  />
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/portfolio/app-2.jpg"
+                      class="img-fluid portfolio-img"
+                      alt="App 2"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-app-2"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
                   <div class="portfolio-info">
                     <h4>App 2</h4>
                     <p>Online Learning Application</p>
                     <a
-                      href="assets/img/portfolio/app-2.jpg"
-                      title="App 2"
-                      data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    <a
-                      href="portfolio-details.html"
-                      title="More Details"
+                      href="https://hoangkhangkhupho4.github.io/project-app-2/"
+                      target="_blank"
+                      title="Live Demo"
                       class="details-link"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
+                    >
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -382,8 +491,9 @@
                 <a
                   href="https://www.facebook.com/profile.php?id=100088292157574"
                   aria-label="Facebook"
-                  ><i class="bi bi-facebook"></i
-                ></a>
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
                 <a href="#" aria-label="Instagram"
                   ><i class="bi bi-instagram"></i
                 ></a>
