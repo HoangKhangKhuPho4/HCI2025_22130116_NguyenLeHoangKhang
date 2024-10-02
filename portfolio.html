@@ -50,7 +50,7 @@
       * Updated: September 2024
       -->
 
-    <!-- Custom CSS for Scroll-to-Top Button and Portfolio Image Styling -->
+    <!-- Custom CSS for Hover Effects and Portfolio Image Styling -->
     <style>
       :root {
         --accent-color: #007bff; /* Màu xanh nước biển */
@@ -177,6 +177,20 @@
       .portfolio-content {
         position: relative;
       }
+
+      /* Hiệu ứng hover nhẹ cho font chữ */
+      a:hover {
+        color: var(--accent-color);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* Hiệu ứng hover cho các mục lọc */
+      .portfolio-filters li:hover {
+        color: var(--accent-color);
+        cursor: pointer;
+        font-weight: 600;
+      }
     </style>
   </head>
 
@@ -257,8 +271,8 @@
             >
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-product">Product</li>
-              <li data-filter=".filter-branding">Branding</li>
+              <li data-filter=".filter-music">Music</li>
+              <li data-filter=".filter-shop">Shop</li>
               <li data-filter=".filter-books">Books</li>
               <!-- Bạn có thể thêm các bộ lọc mới ở đây -->
             </ul>
@@ -296,12 +310,12 @@
                     <h4>App 1</h4>
                     <p>Efficient Task Management</p>
                     <a
-                      href="https://hoangkhangkhupho4.github.io/project-app-1/"
+                      href="https://github.com/hoangkhangkhupho4/project-app-1"
                       target="_blank"
-                      title="Live Demo"
+                      title="GitHub Repository"
                       class="details-link"
                     >
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-github"></i>
                     </a>
                   </div>
                 </div>
@@ -310,19 +324,19 @@
 
               <!-- Portfolio Item 2 -->
               <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-music"
               >
                 <div class="portfolio-content h-100">
                   <div class="portfolio-img-container">
                     <img
                       src="assets/img/screencapture-hoangkhangkhupho4-github-io-WebNgheNhac-2024-09-30-23_13_12.png"
                       class="img-fluid portfolio-img"
-                      alt="Product 1"
+                      alt="Music Streaming"
                     />
                     <!-- Portfolio Overlay with GitHub Link -->
                     <div class="portfolio-overlay">
                       <a
-                        href="https://github.com/hoangkhangkhupho4/project-product-1"
+                        href="https://github.com/hoangkhangkhupho4/project-music-streaming"
                         target="_blank"
                         title="GitHub Repository"
                         class="github-link"
@@ -332,15 +346,15 @@
                     </div>
                   </div>
                   <div class="portfolio-info">
-                    <h4>Web nghe nhạc</h4>
-                    <p>E-commerce Application</p>
+                    <h4>Music Streaming</h4>
+                    <p>Music Listening Platform</p>
                     <a
-                      href="https://hoangkhangkhupho4.github.io/WebNgheNhac/"
+                      href="https://github.com/hoangkhangkhupho4/project-music-streaming"
                       target="_blank"
-                      title="Live Demo"
+                      title="GitHub Repository"
                       class="details-link"
                     >
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-github"></i>
                     </a>
                   </div>
                 </div>
@@ -349,19 +363,19 @@
 
               <!-- Portfolio Item 3 -->
               <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding"
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-shop"
               >
                 <div class="portfolio-content h-100">
                   <div class="portfolio-img-container">
                     <img
                       src="assets/img/screencapture-hoangkhangkhupho4-github-io-WebBanHang-2024-09-30-23_10_01.png"
                       class="img-fluid portfolio-img"
-                      alt="Branding 1"
+                      alt="Shop Management"
                     />
                     <!-- Portfolio Overlay with GitHub Link -->
                     <div class="portfolio-overlay">
                       <a
-                        href="https://github.com/hoangkhangkhupho4/project-branding-1"
+                        href="https://github.com/hoangkhangkhupho4/project-shop-management"
                         target="_blank"
                         title="GitHub Repository"
                         class="github-link"
@@ -371,15 +385,15 @@
                     </div>
                   </div>
                   <div class="portfolio-info">
-                    <h4>Quản lý nhà hàng</h4>
-                    <p>Logo and Brand Identity Design</p>
+                    <h4>Shop Management</h4>
+                    <p>E-commerce Management Platform</p>
                     <a
-                      href="https://hoangkhangkhupho4.github.io/WebBanHang/"
+                      href="https://github.com/hoangkhangkhupho4/project-shop-management"
                       target="_blank"
-                      title="Live Demo"
+                      title="GitHub Repository"
                       class="details-link"
                     >
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-github"></i>
                     </a>
                   </div>
                 </div>
@@ -400,7 +414,7 @@
                     <!-- Portfolio Overlay with GitHub Link -->
                     <div class="portfolio-overlay">
                       <a
-                        href="https://hoangkhangkhupho4.github.io/"
+                        href="https://github.com/hoangkhangkhupho4/books-project"
                         target="_blank"
                         title="GitHub Repository"
                         class="github-link"
@@ -413,12 +427,12 @@
                     <h4>Books 1</h4>
                     <p>Writing and Publishing eBooks</p>
                     <a
-                      href="https://hoangkhangkhupho4.github.io/"
+                      href="https://github.com/hoangkhangkhupho4/books-project"
                       target="_blank"
-                      title="Live Demo"
+                      title="GitHub Repository"
                       class="details-link"
                     >
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-github"></i>
                     </a>
                   </div>
                 </div>
@@ -452,12 +466,12 @@
                     <h4>App 2</h4>
                     <p>Online Learning Application</p>
                     <a
-                      href="https://hoangkhangkhupho4.github.io/project-app-2/"
+                      href="https://github.com/hoangkhangkhupho4/project-app-2"
                       target="_blank"
-                      title="Live Demo"
+                      title="GitHub Repository"
                       class="details-link"
                     >
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-github"></i>
                     </a>
                   </div>
                 </div>
@@ -650,9 +664,10 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
 
-    <!-- Custom JS for Scroll-to-Top Button -->
+    <!-- Custom JS for Scroll-to-Top Button and Portfolio Filtering -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Scroll-to-Top Button Functionality
         const scrollTopBtn = document.getElementById("scroll-top");
 
         // Hiển thị nút khi cuộn xuống hơn 100px
@@ -671,6 +686,38 @@
             top: 0,
             behavior: "smooth",
           });
+        });
+
+        // Khởi tạo AOS (Animate On Scroll)
+        AOS.init();
+
+        // Khởi tạo Isotope
+        var iso = new Isotope(".isotope-container", {
+          itemSelector: ".portfolio-item",
+          layoutMode: "masonry",
+          masonry: {
+            columnWidth: ".portfolio-item",
+          },
+        });
+
+        // Lọc các mục portfolio khi click vào các tab
+        var filtersElem = document.querySelector(".portfolio-filters");
+        filtersElem.addEventListener("click", function (event) {
+          // Chỉ xử lý khi click vào phần tử li
+          if (!event.target.matches("li")) {
+            return;
+          }
+          var filterValue = event.target.getAttribute("data-filter");
+          iso.arrange({ filter: filterValue });
+
+          // Thêm class 'filter-active' cho tab được chọn
+          var filterActive = document.querySelector(
+            ".portfolio-filters .filter-active"
+          );
+          if (filterActive) {
+            filterActive.classList.remove("filter-active");
+          }
+          event.target.classList.add("filter-active");
         });
       });
     </script>
