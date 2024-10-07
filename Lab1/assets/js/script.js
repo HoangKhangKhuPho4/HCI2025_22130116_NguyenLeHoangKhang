@@ -44,6 +44,7 @@ const lastUpdatedAtField = document.getElementById("lastUpdatedAt");
 
 // Thêm biến lưu trữ dữ liệu người dùng ban đầu
 let originalUserData;
+const defaultImageUrl = "https://via.placeholder.com/120"; // Thay đổi URL nếu cần
 
 // ---------------------------
 // Các Hàm Hỗ Trợ
@@ -175,43 +176,43 @@ function toggleLoginLogoutButtons() {
 // ---------------------------
 // Xử Lý Đăng Nhập
 // ---------------------------
-loginForm.addEventListener("submit", async function (e) {
-  e.preventDefault();
+// loginForm.addEventListener("submit", async function (e) {
+//   e.preventDefault();
 
-  const credentials = {
-    username: loginUsernameInput.value.trim(),
-    password: loginPasswordInput.value.trim(),
-  };
+//   const credentials = {
+//     username: loginUsernameInput.value.trim(),
+//     password: loginPasswordInput.value.trim(),
+//   };
 
-  try {
-    const response = await fetch("http://localhost:5000/api/users/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    });
+//   try {
+//     const response = await fetch("http://localhost:5000/api/users/login", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(credentials),
+//     });
 
-    const data = await response.json();
-    if (response.ok) {
-      alert(data.message);
-      // Lưu ID người dùng và token vào localStorage
-      localStorage.setItem("currentUserId", data.user._id);
-      localStorage.setItem("authToken", data.token);
-      // Đóng modal đăng nhập
-      const loginModal = bootstrap.Modal.getInstance(
-        document.getElementById("loginModal")
-      );
-      loginModal.hide();
-      // Tải lại thông tin người dùng
-      fetchUserData(data.user._id);
-      toggleLoginLogoutButtons();
-    } else {
-      alert(data.message);
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Đã xảy ra lỗi khi đăng nhập.");
-  }
-});
+//     const data = await response.json();
+//     if (response.ok) {
+//       alert(data.message);
+//       // Lưu ID người dùng và token vào localStorage
+//       localStorage.setItem("currentUserId", data.user._id);
+//       localStorage.setItem("authToken", data.token);
+//       // Đóng modal đăng nhập
+//       const loginModal = bootstrap.Modal.getInstance(
+//         document.getElementById("loginModal")
+//       );
+//       loginModal.hide();
+//       // Tải lại thông tin người dùng
+//       fetchUserData(data.user._id);
+//       toggleLoginLogoutButtons();
+//     } else {
+//       alert(data.message);
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//     alert("Đã xảy ra lỗi khi đăng nhập.");
+//   }
+// });
 
 // ---------------------------
 // Xử Lý Đăng Xuất
@@ -223,7 +224,7 @@ logoutButton.addEventListener("click", function () {
   toggleLoginLogoutButtons();
   // Làm trống các trường trong biểu mẫu
   accountForm.reset();
-  profileImage.src = "https://via.placeholder.com/120";
+  profileImage.src = defaultImageUrl; // Đặt hình ảnh về mặc định
   accountCreatedAtField.value = "";
   lastUpdatedAtField.value = "";
   uploadFeedback.innerHTML = "";
@@ -232,11 +233,6 @@ logoutButton.addEventListener("click", function () {
   // Vô hiệu hóa nút "Save Changes"
   saveButton.disabled = true;
 });
-
-// ---------------------------
-// Xử Lý Đăng Ký Người Dùng (Giả Lập)
-// ---------------------------
-// Bạn có thể thêm một modal đăng ký tương tự như modal đăng nhập nếu cần
 
 // ---------------------------
 // Xử Lý Tải và Cập Nhật Thông Tin Người Dùng
@@ -270,7 +266,7 @@ function populateForm(user) {
   // Không điền mật khẩu
   document.getElementById("fullName").value = user.fullName || "";
   document.getElementById("role").value = user.role;
-  profileImage.src = user.profileImage || "https://via.placeholder.com/120";
+  profileImage.src = user.profileImage || defaultImageUrl; // Sử dụng URL mặc định nếu không có hình ảnh
   accountCreatedAtField.value = formatDateTime(user.createdAt);
   lastUpdatedAtField.value = formatDateTime(user.updatedAt);
 
@@ -280,7 +276,7 @@ function populateForm(user) {
     email: user.email,
     fullName: user.fullName || "",
     role: user.role,
-    profileImage: user.profileImage || "https://via.placeholder.com/120",
+    profileImage: user.profileImage || defaultImageUrl,
   };
 
   // Đặt lại trạng thái của nút "Save Changes"
@@ -346,7 +342,7 @@ cancelButton.addEventListener("click", function (e) {
     populateForm(originalUserData);
   } else {
     accountForm.reset();
-    profileImage.src = "https://via.placeholder.com/120";
+    profileImage.src = defaultImageUrl; // Đặt về hình mặc định
   }
 
   // Xóa các thông báo lỗi (nếu có)
@@ -417,12 +413,12 @@ pictureUrlInput.addEventListener("change", function () {
   }
 });
 
-// Delete Profile Picture
+// Xử lý nút Delete
 deleteButton.addEventListener("click", function (e) {
   e.preventDefault();
-  profileImage.src = "https://via.placeholder.com/120";
-  uploadInput.value = "";
-  pictureUrlInput.value = "";
+  profileImage.src = defaultImageUrl; // Đặt hình ảnh về mặc định
+  uploadInput.value = ""; // Xóa file upload
+  pictureUrlInput.value = ""; // Xóa URL hình ảnh
   uploadFeedback.innerHTML =
     '<div class="alert alert-info" role="alert">Profile picture has been reset.</div>';
   updateLastUpdatedAt();
@@ -519,7 +515,6 @@ backToTopButton.addEventListener("click", function () {
 // ---------------------------
 // Xử Lý Khởi Tạo Thời Gian
 // ---------------------------
-// Initialize Account Created At and Last Updated At
 function initializeTimestamps() {
   initializeAccountCreatedAt();
   initializeLastUpdatedAt();
@@ -533,4 +528,82 @@ window.addEventListener("DOMContentLoaded", () => {
   if (currentUserId) {
     fetchUserData(currentUserId);
   }
+});
+
+// ---------------------------
+// Xử Lý Kéo và Thả Hình Ảnh
+// ---------------------------
+const dropArea = document.getElementById("dropArea");
+
+// Ngăn chặn hành động mặc định khi kéo và thả
+["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+  dropArea.addEventListener(eventName, preventDefaults, false);
+  document.body.addEventListener(eventName, preventDefaults, false);
+});
+
+// Thêm các lớp cho khu vực kéo và thả khi người dùng kéo vào
+["dragenter", "dragover"].forEach((eventName) => {
+  dropArea.addEventListener(eventName, highlight, false);
+});
+
+// Xóa lớp khi không kéo vào khu vực
+["dragleave", "drop"].forEach((eventName) => {
+  dropArea.addEventListener(eventName, unhighlight, false);
+});
+
+// Xử lý hình ảnh khi thả
+dropArea.addEventListener("drop", handleDrop, false);
+
+// Ngăn chặn hành động mặc định
+function preventDefaults(e) {
+  e.preventDefault();
+  e.stopPropagation();
+}
+
+// Thêm lớp highlight
+function highlight() {
+  dropArea.classList.add("highlight");
+}
+
+// Xóa lớp highlight
+function unhighlight() {
+  dropArea.classList.remove("highlight");
+}
+
+// Xử lý hình ảnh thả
+function handleDrop(e) {
+  const dt = e.dataTransfer;
+  const files = dt.files;
+  handleFiles(files);
+}
+
+// Hàm xử lý hình ảnh
+function handleFiles(files) {
+  const file = files[0];
+  const reader = new FileReader();
+
+  reader.onload = function () {
+    profileImage.src = reader.result; // Cập nhật hình ảnh hồ sơ
+    uploadFeedback.innerHTML =
+      '<div class="alert alert-success" role="alert">Profile picture updated successfully.</div>';
+    pictureUrlInput.value = ""; // Xóa URL
+    updateLastUpdatedAt();
+    checkFormValidity();
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+// Xử lý nút Delete
+deleteButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  profileImage.src = defaultImageUrl; // Đặt hình ảnh về mặc định
+  uploadInput.value = ""; // Xóa file upload
+  pictureUrlInput.value = ""; // Xóa URL hình ảnh
+  uploadFeedback.innerHTML =
+    '<div class="alert alert-info" role="alert">Profile picture has been reset.</div>';
+  updateLastUpdatedAt();
+  checkFormValidity();
 });
